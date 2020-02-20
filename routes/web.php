@@ -10,7 +10,28 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
+Route::get('/', 'LoginController@login');
+Route::post('/', 'LoginController@loginIslem');
+
+Route::get('/panel', 'PanelController@index');
+
+Route::get('/panel/stok', 'Panel\Stok\StokController@liste');
+/*
+stok 
+	ekle 
+	çıkart
+	değişim
+	listeleme
+
+ik
+	özlük
+	bordro
+	etkinlik
+	servis
+	*/
