@@ -9,18 +9,19 @@ class PanelController extends Controller
 {
 
    function index(){
-        $veri = DB::table('');
-        $kullanıcılar = $this->kullanıcıListesi();
+        $urunSayi = DB::table('products')->count();
+        $kullaniciSayi = DB::table('users')->count();
+        $kullanıcılar = $this->kullaniciListesi();
         return view('panel',[
-                'veri'=>$veri,
-                'kullanıcılar'=>$this->kullanıcıListesi(),
-                ''
+                'urunSayi'=>$urunSayi,
+                'kullaniciSayi'=>$kullaniciSayi,
+                'kullanıcılar'=>$this->kullaniciListesi(),
             ]
         );
    }
 
-   function kullanıcıListesi(){
+   function kullaniciListesi(){
         return DB::table('users')->get();
    }
-   function stokliste()
+   function stokliste(){}
 }
