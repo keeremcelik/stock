@@ -21,7 +21,7 @@ Route::post('/', 'LoginController@loginIslem');
 
 Route::get('/panel', 'PanelController@index');
 
-Route::get('/panel/stok', 'Panel\Stok\StokController@liste');
+Route::get('/panel/stocks', 'Panel\Stok\StokController@liste');
 /*
 stok 
 	ekle 
