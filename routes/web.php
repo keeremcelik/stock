@@ -16,12 +16,27 @@ Route::get('/', function () {
 });
 */
 
-Route::get('/', 'LoginController@login');
-Route::post('/', 'LoginController@loginIslem');
+Route::get('/', 						'LoginController@login');
+Route::post('/', 						'LoginController@loginIslem');
 
-Route::get('/panel', 'PanelController@index');
+Route::get('/panel', 					'PanelController@index');
 
-Route::get('/panel/stocks', 'Panel\Stok\StokController@liste');
+Route::get('/panel/departman', 			'Panel\Other\OtherController@departmanListele');
+Route::get('/panel/depo', 				'Panel\Other\OtherController@depoListele');
+Route::get('/panel/olcubirim', 			'Panel\Other\OtherController@olcubirimListele');
+Route::get('/panel/firmalar', 			'Panel\Other\OtherController@firmaListele');
+Route::get('/panel/mgrup', 				'Panel\Other\OtherController@mgrupListele');
+Route::get('/panel/mcinsi', 			'Panel\Other\OtherController@mcinsiListele');
+Route::get('/panel/urunler', 			'Panel\Other\OtherController@urunlerListele');
+
+Route::get('/panel/stocks', 			'Panel\Stok\StokController@liste');
+Route::get('/panel/stokEkle', 			'Panel\Stok\StokController@stokEkle');
+Route::get('/panel/stokGiris', 			'Panel\Stok\StokController@stokGiris');
+Route::get('/panel/stokCikis', 			'Panel\Stok\StokController@stokCikis');
+
+Route::get('/panel/kullanici/ekle', 	'Panel\Kullanici\kullaniciController@kullaniciEkle');
+Route::get('/panel/kullanici/guncelle', 'Panel\Kullanici\kullaniciController@kullaniciGuncelle');
+Route::get('/panel/kullanici/sil', 		'Panel\Kullanici\kullaniciController@kullaniciSil');
 /*
 stok 
 	ekle 

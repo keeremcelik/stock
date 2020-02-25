@@ -17,6 +17,18 @@ class StokController extends Controller{
 		return view('panel/stok/stokGoruntule',['stoklar' => $urunler]);
 	}
 
+	function stokGiris(){
+		return view('panel/stok/stokGiris');
+	}
+
+	function stokCikis(){
+		return view('panel/stok/stokCikis');
+	}
+
+	function stokEkle(){
+		return view('panel/stok/stokEkle');
+	}
+
    function stokGuncellemeView(){
 
    		return view('panel/stok/stokDegisim');

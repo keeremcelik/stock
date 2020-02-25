@@ -1,4 +1,4 @@
 @extends('sablon')
 @section('icerik')
- <p> Stok Ekleme </p>
+ <p> Kullanici Güncelle </p>
 @endsection

@@ -72,7 +72,19 @@
 				 	@foreach($stoklar as $stok)
 						<tr>
 							<td  class="c-blue">{{$stok->code}}</td>	  
-					</tr>
+							<td  class="">Ürün Adı</td>	  
+              <td  class="c-blue">Adet</td>   
+              <td  class="c-blue">İstatislik</td>   
+              <td  class="c-blue">
+                <div class="islemler">              
+                  <a id="" class="editBtn" href="editStock.php?id='.$st["id"].'" ><i class="fas fa-edit"></i></a>  
+                  <a class="" onclick="return confirmDel();" href="process.php?type=stock&op=del&id='.$st["id"].'"><i class="fas fa-trash-alt"></i></a>
+            </div>
+            </td>   
+						</tr>
+            </tr>
+					
+				
 				 	@endforeach
               </tbody></table>
             </div>

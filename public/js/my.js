@@ -125,7 +125,7 @@ function compCek(element) {
 			});
 };	
 	
-$(document).ready(function(){
+/*$(document).ready(function(){
 	$(document).on('click', '#view', function(e){
 	 
 	  //e.preventDefault();
@@ -140,5 +140,5 @@ $(document).ready(function(){
 	
 
 	});
-});
+});*/
 

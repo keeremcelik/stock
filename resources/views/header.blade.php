@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="files/css/jquery-ui-git.css">
 	<link rel="stylesheet" type="text/css" href="files/css/animate.css">
 	<link rel="stylesheet" type="text/css" href="files/css/style.css">
+  <link rel="stylesheet" type="text/css" href="files/css/login.css">
 </head>
 
 <body>
@@ -44,7 +45,7 @@
 		<a href="#menu2" class="list-group-item collapsed list-group-item-action bg-light" data-toggle="collapse" ><i class="fas fa-cubes"></i> STOK İşlemleri</a>
 		<div class="collapse" id="menu2">
 			<a href="stocks.php" class="list-group-item" data-parent="#menu2"><i class="fas fa-plus"></i> STOK İşlemleri</a>
-			<a href="addStock.php" class="list-group-item" data-parent="#menu2"><i class="fas fa-plus"></i> Stok Ürün Ekleme</a>
+			<a href="stokEkle" class="list-group-item" data-parent="#menu2"><i class="fas fa-plus"></i> Stok Ürün Ekleme</a>
 			<a href="inStock.php" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Giriş Yap</a>
 			<a href="outStock.php" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Çıkış Yap</a>
 		</div>

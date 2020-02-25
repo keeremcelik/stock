@@ -5,10 +5,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
     	
+	<link href="{{URL::asset('css/simple-sidebar.css')}}" rel="stylesheet">
 	<link href="{{URL::asset('css/jquery-ui-git.css')}}" rel="stylesheet">
 	<link href="{{URL::asset('css/animate.css')}}" rel="stylesheet">
 	<link href="{{URL::asset('css/style.css')}}" rel="stylesheet">
-	<link href="{{URL::asset('css/simple-sidebar.css')}}" rel="stylesheet">
+	
 	
 	
 
@@ -22,26 +23,26 @@
 				<a href="{{url('/panel')}}" class="list-group-item list-group-item-action bg-light"><i class="fas fa-tachometer-alt"></i> Ana Sayfa</a>
 				<a href="#menu1" class="list-group-item collapsed list-group-item-action bg-light" data-toggle="collapse" ><i class="fab fa-product-hunt"></i> Diğer İşlemler</a>
 				<div class="collapse" id="menu1">
-					<a href="{{url('/panel/department')}}" class="list-group-item" data-parent="#menu1"> Departman İşlemleri</a>
-					<a href="{{url('/panel/store')}}" class="list-group-item" data-parent="#menu1"> Depo İşlemleri</a>
+					<a href="{{url('/panel/departman')}}" class="list-group-item" data-parent="#menu1"> Departman İşlemleri</a>
+					<a href="{{url('/panel/depo')}}" class="list-group-item" data-parent="#menu1"> Depo İşlemleri</a>
 					<a href="{{url('/panel/olcubirim')}}" class="list-group-item" data-parent="#menu1"> Ölçü Birimleri İşlemleri</a>
-					<a href="{{url('/panel/companies')}}" class="list-group-item" data-parent="#menu1"> Firma İşlemleri</a>
-					<a href="{{url('/panel/mclass')}}" class="list-group-item" data-parent="#menu1"> Malzeme Grubu İşlemleri </a>
-					<a href="{{url('/panel/mtype')}}" class="list-group-item" data-parent="#menu1"> Malzeme Cinsi </a>
-					<a href="{{url('/panel/products')}}" class="list-group-item" data-parent="#menu1"> Ürün İşlemleri</a>
+					<a href="{{url('/panel/firmalar')}}" class="list-group-item" data-parent="#menu1"> Firma İşlemleri</a>
+					<a href="{{url('/panel/mgrup')}}" class="list-group-item" data-parent="#menu1"> Malzeme Grubu İşlemleri </a>
+					<a href="{{url('/panel/mcinsi')}}" class="list-group-item" data-parent="#menu1"> Malzeme Cinsi </a>
+					<a href="{{url('/panel/urunler')}}" class="list-group-item" data-parent="#menu1"> Ürün İşlemleri</a>
 				</div>
 				<a href="#menu2" class="list-group-item collapsed list-group-item-action bg-light" data-toggle="collapse" ><i class="fas fa-cubes"></i> STOK İşlemleri</a>
 				<div class="collapse" id="menu2">
 					<a href="{{url('/panel/stocks')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-plus"></i> STOK İşlemleri</a>
-					<a href="{{url('/panel/addStock')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-plus"></i> Stok Ürün Ekleme</a>
-					<a href="{{url('/panel/inStock')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Giriş Yap</a>
-					<a href="{{url('/panel/outStock')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Çıkış Yap</a>
+					<a href="{{url('/panel/stokEkle')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-plus"></i> Stok Ürün Ekleme</a>
+					<a href="{{url('/panel/stokGiris')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Giriş Yap</a>
+					<a href="{{url('/panel/stokCikis')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Çıkış Yap</a>
 				</div>
 				<a href="#menu3" class="list-group-item collapsed list-group-item-action bg-light" data-toggle="collapse" ><i class="fas fa-users"></i> Kullanıcı İşlemleri</a>
 				<div class="collapse" id="menu3">
-					<a href="#" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-plus"></i> Kullanıcı Ekle</a>
-					<a href="#" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-edit"></i> Kullanıcı Güncelleme</a>
-					<a href="#" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-minus"></i> Kullanıcı Silme</a>
+					<a href="{{url('/panel/kullanici/ekle')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-plus"></i> Kullanıcı Ekle</a>
+					<a href="{{url('/panel/kullanici/guncelle')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-edit"></i> Kullanıcı Güncelleme</a>
+					<a href="{{url('/panel/kullanici/sil')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-minus"></i> Kullanıcı Silme</a>
 				</div>
 			</div>
     	</div>
