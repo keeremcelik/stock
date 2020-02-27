@@ -21,9 +21,10 @@ Route::post('/', 						'LoginController@loginIslem');
 
 Route::get('/panel', 					'PanelController@index');
 
-Route::post('/panel/departman/ekle',	'Panel\Other\OtherController@departmanEkle');
-Route::post('/panel/departman/guncelle','Panel\Other\OtherController@departmanGuncelle');
-Route::get('/panel/departman', 			'Panel\Other\OtherController@departmanListele');
+Route::get('/panel/departman/sil/{id}','Panel\Departman\DepartmanController@departmanSil');
+Route::post('/panel/departman/ekle',	'Panel\Departman\DepartmanController@departmanEkle');
+Route::post('/panel/departman/guncelle','Panel\Departman\DepartmanController@departmanGuncelle');
+Route::get('/panel/departman', 			'Panel\Departman\DepartmanController@departmanListele');
 
 Route::get('/panel/depo', 				'Panel\Other\OtherController@depoListele');
 Route::get('/panel/olcubirim', 			'Panel\Other\OtherController@olcubirimListele');

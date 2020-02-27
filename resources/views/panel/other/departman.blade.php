@@ -58,7 +58,7 @@
 				  <div class="islemler">    
 					
 						<a  id="" onclick="idCek( '{{ $dep->id }}','{{ $dep->name }}' );"  class="editBtn" href="#"   data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></a>	 
-						<a class=""  onclick="return confirmDel();" href="process.php?type=dep&op=del&id='.$dep["id"].'"><i class="fas fa-trash-alt"></i></a>
+						<a class="" onclick="return confirmDel();" href="{{URL::to('panel/departman/sil/'.$dep->id)}}"><i class="fas fa-trash-alt"></i></a>
    					</div>
 					
 				  
