@@ -56,8 +56,8 @@
 				  <td>
 				  <div class="islemler">    
 					
-						<a  id="" onclick="mUnitCek('.$munit["id"].')" data-id="'.$munit["id"].'" class="editBtn" href="#"   data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></a>	 
-						<a class=""  onclick="return confirmDel();" href="process.php?type=munit&op=del&id='.$munit["id"].'"><i class="fas fa-trash-alt"></i></a>
+						<a  id="" onclick="olcubirimVeriCek('{{ $olcubirim->id }}','{{ $olcubirim->name }}');" class="editBtn" href="#"   data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></a>	 
+						<a class=""  onclick="return confirmDel();" href="{{URL::to('panel/olcubirim/sil/'.$olcubirim->id)}}"><i class="fas fa-trash-alt"></i></a>
    					</div>
 					
 				  
@@ -84,7 +84,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=munit&op=add" method="POST">
+     <form id="formHizmetler" action="{{URL::to('panel/olcubirim/ekle')}}" method="POST">
+     	@csrf
 		  <div class="modal-body">
 			 <div class="form-group">
 				
@@ -110,10 +111,11 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=munit&op=upd" method="POST">
+     <form id="formHizmetler" action="{{URL::to('panel/olcubirim/guncelle')}}" method="POST">
+     	@csrf
 		  <div class="modal-body">
-			<input type="text" name="edt-munit-id" id="edt-munit-id" class="form-control" hidden readonly >
-			<input type="text" name="edt-munit-name" id="edt-munit-name" class="form-control" placeholder="Ölçü birimi giriniz" required >
+			<input type="text" name="editid" id="editid" class="form-control" hidden readonly >
+			<input type="text" name="editname" id="editname" class="form-control" placeholder="Ölçü birimi giriniz" required >
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -26,10 +26,22 @@ Route::post('/panel/departman/ekle',	'Panel\Departman\DepartmanController@depart
 Route::post('/panel/departman/guncelle','Panel\Departman\DepartmanController@departmanGuncelle');
 Route::get('/panel/departman', 			'Panel\Departman\DepartmanController@departmanListele');
 
+Route::get('/panel/olcubirim/sil/{id}',	'Panel\OlcuBirim\OlcuBirimController@olcubirimSil');
+Route::post('/panel/olcubirim/ekle',	'Panel\OlcuBirim\OlcuBirimController@olcubirimEkle');
+Route::post('/panel/olcubirim/guncelle','Panel\OlcuBirim\OlcuBirimController@olcubirimGuncelle');
+Route::get('/panel/olcubirim', 			'Panel\OlcuBirim\OlcuBirimController@olcubirimListele');
+
+Route::get('/panel/firmalar/sil/{id}',	'Panel\Firma\FirmaController@firmaSil');
+Route::post('/panel/firmalar/ekle',		'Panel\Firma\FirmaController@firmaEkle');
+Route::post('/panel/firmalar/guncelle',	'Panel\Firma\FirmaController@firmaGuncelle');
+Route::get('/panel/firmalar', 			'Panel\Firma\FirmaController@firmaListele');
+
+Route::get('/panel/mgrup/sil/{id}',		'Panel\MalzemeGrup\MalzemeGrupController@malzemeGrupSil');
+Route::post('/panel/mgrup/ekle',		'Panel\MalzemeGrup\MalzemeGrupController@malzemeGrupEkle');
+Route::post('/panel/mgrup/guncelle',	'Panel\MalzemeGrup\MalzemeGrupController@malzemeGrupGuncelle');
+Route::get('/panel/mgrup', 				'Panel\MalzemeGrup\MalzemeGrupController@malzemeGrupListele');
+
 Route::get('/panel/depo', 				'Panel\Other\OtherController@depoListele');
-Route::get('/panel/olcubirim', 			'Panel\Other\OtherController@olcubirimListele');
-Route::get('/panel/firmalar', 			'Panel\Other\OtherController@firmaListele');
-Route::get('/panel/mgrup', 				'Panel\Other\OtherController@mgrupListele');
 Route::get('/panel/mcinsi', 			'Panel\Other\OtherController@mcinsiListele');
 Route::get('/panel/urunler', 			'Panel\Other\OtherController@urunlerListele');
 

@@ -62,8 +62,8 @@
 				  <td>
 				  <div class="islemler">    
 					
-						<a id="" onclick="compCek('.$comp["id"].')" data-id="'.$comp["id"].'" class="editBtn" href="#"   data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></a>	 
-						<a class=""  onclick="return confirmDel();" href="process.php?type=comp&op=del&id='.$comp["id"].'"><i class="fas fa-trash-alt"></i></a>
+						<a onclick="compCek('{{ $firma->id }}','{{ $firma->code }}','{{ $firma->name }}','{{ $firma->address }}','{{ $firma->tax_administration }}','{{ $firma->tax_number  }}','{{ $firma->autorized_name }}','{{ $firma->phone }}','{{ $firma->fax }}','{{ $firma->gsm }}','{{ $firma->web }}','{{ $firma->email }}');" class="editBtn" href="#"   data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></a>	 
+						<a class=""  onclick="return confirmDel();" href="{{URL::to('panel/firmalar/sil/'.$firma->id)}}"><i class="fas fa-trash-alt"></i></a>
    					</div>
 					
 				  
@@ -90,7 +90,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=comp&op=add" method="POST">
+     <form id="formHizmetler" action="{{URL::to('panel/firmalar/ekle')}}" method="POST">
+     	@csrf
 		  <div class="modal-body">
 			 <div class="form-group">
 				<input type="text" name="code" id="code" class="form-control" placeholder="Firma kodu giriniz" required >
@@ -145,41 +146,42 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=comp&op=upd" method="POST">
+     <form id="formHizmetler" action="{{URL::to('panel/firmalar/guncelle')}}" method="POST">
+     	@csrf
 		  <div class="modal-body">
-			<input type="text" name="edt-comp-id" id="edt-comp-id" class="form-control" hidden readonly >
+			<input type="text" name="editid" id="editid" class="form-control" hidden readonly >
 			<div class="form-group">
-				<input type="text" name="edt-comp-code" id="edt-comp-code" class="form-control" placeholder="Firma kodu giriniz" required >
+				<input type="text" name="editcode" id="editcode" class="form-control" placeholder="Firma kodu giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-name" id="edt-comp-name" class="form-control" placeholder="Firma adı giriniz" required >
+				<input type="text" name="editname" id="editname" class="form-control" placeholder="Firma adı giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-address" id="edt-comp-address" class="form-control" placeholder="Firma adresi giriniz" required >
+				<input type="text" name="editaddress" id="editaddress" class="form-control" placeholder="Firma adresi giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-tax-adm" id="edt-comp-tax-adm" class="form-control" placeholder="Vergi dairesi giriniz" required >
+				<input type="text" name="edittax-adm" id="edittax-adm" class="form-control" placeholder="Vergi dairesi giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-tax-num" id="edt-comp-tax-num" class="form-control" placeholder="Vergi numarası giriniz" required >
+				<input type="text" name="edittax-num" id="edittax-num" class="form-control" placeholder="Vergi numarası giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-autorized" id="edt-comp-autorized" class="form-control" placeholder="Yetkili adı giriniz" required >
+				<input type="text" name="editautorized" id="editautorized" class="form-control" placeholder="Yetkili adı giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-phone" id="edt-comp-phone" class="form-control" placeholder="Telefon giriniz" required >
+				<input type="text" name="editphone" id="editphone" class="form-control" placeholder="Telefon giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-fax" id="edt-comp-fax" class="form-control" placeholder="Fax giriniz" required >
+				<input type="text" name="editfax" id="editfax" class="form-control" placeholder="Fax giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-gsm" id="edt-comp-gsm" class="form-control" placeholder="GSM giriniz" required >
+				<input type="text" name="editgsm" id="editgsm" class="form-control" placeholder="GSM giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-web" id="edt-comp-web" class="form-control" placeholder="Web adresi giriniz" required >
+				<input type="text" name="editweb" id="editweb" class="form-control" placeholder="Web adresi giriniz" required >
 			</div>
 			 <div class="form-group">
-				<input type="text" name="edt-comp-email" id="edt-comp-email" class="form-control" placeholder="Email adresi giriniz" required >
+				<input type="text" name="editemail" id="editemail" class="form-control" placeholder="Email adresi giriniz" required >
 			</div>
 		  </div>
 		  <div class="modal-footer">
