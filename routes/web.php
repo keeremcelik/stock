@@ -27,11 +27,26 @@ Route::post('/panel/departman/guncelle','Panel\Departman\DepartmanController@dep
 Route::get('/panel/departman', 			'Panel\Departman\DepartmanController@departmanListele');
 
 Route::get('/panel/depo', 				'Panel\Other\OtherController@depoListele');
+Route::post('/panel/depo/ekle', 		'Panel\Depo\DepoController@depoEkle');
+Route::post('/panel/depo/guncelle', 	'Panel\Depo\DepoController@depoGuncelle');
+Route::get('/panel/depo/sil/{id}', 		'Panel\Depo\DepoController@depoSil');
+
+
+Route::get('/panel/mcinsi', 			'Panel\MalzemeCinsi\MalzemeCinsiController@malzemecinsiListele');
+Route::post('/panel/mcinsi/ekle', 		'Panel\MalzemeCinsi\MalzemeCinsiController@malzemeCinsiEkle');
+Route::post('/panel/mcinsi/guncelle', 	'Panel\MalzemeCinsi\MalzemeCinsiController@malzemeCinsiGuncelle');
+Route::get('/panel/mcinsi/sil/{id}', 	'Panel\MalzemeCinsi\MalzemeCinsiController@malzemeCinsiSil');
+
 Route::get('/panel/olcubirim', 			'Panel\Other\OtherController@olcubirimListele');
 Route::get('/panel/firmalar', 			'Panel\Other\OtherController@firmaListele');
 Route::get('/panel/mgrup', 				'Panel\Other\OtherController@mgrupListele');
-Route::get('/panel/mcinsi', 			'Panel\Other\OtherController@mcinsiListele');
-Route::get('/panel/urunler', 			'Panel\Other\OtherController@urunlerListele');
+
+
+
+Route::get('/panel/urunler', 			'Panel\Urun\UrunController@urunListele');
+Route::post('/panel/urun/ekle', 		'Panel\Urun\UrunController@UrunEkle');
+Route::post('/panel/urun/guncelle', 	'Panel\Urun\UrunController@UrunGuncelle');
+Route::get('/panel/urun/sil/{id}', 		'Panel\Urun\UrunController@UrunSil');
 
 Route::get('/panel/stocks', 			'Panel\Stok\StokController@liste');
 Route::get('/panel/stokEkle', 			'Panel\Stok\StokController@stokEkle');

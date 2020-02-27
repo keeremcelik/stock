@@ -15,12 +15,30 @@ function viewStock(element) {
 
 };
 
+function depoVeriCek($id,$code,$name){
+	document.getElementById("editid").value = $id;
+	document.getElementById("editcode").value = $code;
+	document.getElementById("editname").value = $name;
+}
+function malzemeTipiVeriCek($id,$name){
+	document.getElementById("editid").value = $id;
+	document.getElementById("editname").value = $name;
+
+}
+function urunVeriCek(id,type,typename,code,name){
+	document.getElementById('editid').value = id;
+	document.getElementById('edittype').value = type;
+	document.getElementById('edittypename').value = typename;
+	document.getElementById('editcode').value = code;
+	document.getElementById('editname').value = name;
+}
 function idCek($id,$name) {		
 		
-					document.getElementById("editid").value = $id; 
-					document.getElementById("editname").value = $name; 
+	document.getElementById("editid").value = $id; 
+	document.getElementById("editname").value = $name; 
 			
 };
+/*
 	function depoVeriCek(element) {		
 			$.ajax({
 				url:'ajax.php?type=str&op=upd',
@@ -33,7 +51,8 @@ function idCek($id,$name) {
 					document.getElementById("edt-str-name").value = result.name; 
 				}
 			});
-};	
+
+};	*/
 		function mUnitCek(element) {		
 			$.ajax({
 				url:'ajax.php?type=munit&op=upd',

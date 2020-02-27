@@ -57,8 +57,8 @@
 				  <td>{{$depo->name}}</td>		 
 				  <td>
 					<div class="islemler">					
-						<a  id="" onclick="depoVeriCek('.$str["id"].')" data-id="'.$str["id"].'" class="editBtn" href="#"   data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></a>	 
-						<a class=""  onclick="return confirmDel();" href="process.php?type=str&op=del&id='.$str["id"].'"><i class="fas fa-trash-alt"></i></a>
+						<a  id="" onclick="depoVeriCek('{{$depo->id}}','{{$depo->code}}','{{$depo->name}}')" class="editBtn" href="#"   data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></a>	 
+						<a class=""  onclick="return confirmDel();" href="{{URL::to('panel/depo/sil/'.$depo->id)}}"><i class="fas fa-trash-alt"></i></a>
 					</div>
 					
 				  
@@ -85,7 +85,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=str&op=add" method="POST">
+     <form id="formHizmetler" action="{{URL::to('panel/depo/ekle')}}" method="POST">
+		  @csrf
 		  <div class="modal-body">
 			 <div class="form-group">
 				<input type="text" name="code" id="code" class="form-control" placeholder="Depo kodu giriniz" required >
@@ -111,14 +112,15 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=str&op=upd" method="POST">
+     <form id="formHizmetler" action="{{URL::to('panel/depo/guncelle')}}" method="POST">
+     	@csrf
 		  <div class="modal-body">
-			<input type="text" name="edt-str-id" id="edt-str-id" class="form-control" hidden readonly >
+			<input type="text" name="editid" id="editid" class="form-control" hidden readonly >
 			<div class="form-group">
-			<input type="text" name="edt-str-code" id="edt-str-code" class="form-control" placeholder="Depo kodu giriniz" required >
+			<input type="text" name="editcode" id="editcode" class="form-control" placeholder="Depo kodu giriniz" required >
 			</div>
 			<div class="form-group">
-			<input type="text" name="edt-str-name" id="edt-str-name" class="form-control" placeholder="Depo adı giriniz" required >
+			<input type="text" name="editname" id="editname" class="form-control" placeholder="Depo adı giriniz" required >
 			</div>
 		  </div>
 		  <div class="modal-footer">

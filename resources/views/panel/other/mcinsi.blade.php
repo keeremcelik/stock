@@ -58,12 +58,12 @@
 				
 				 <tr>
 				  <td>{{$mcinsi->name}}</td>		 
-				  <td>{{$mcinsi->c_id}}</td>
+				  <td>{{$mcinsi->cname}}</td>
 				  <td>
 				  <div class="islemler">    
 					
-						<a onclick="mtypeCek('.$mclass["id"].')" class="editBtn" href="#"  data-toggle="modal" data-target="#editModal"  ><i class="fas fa-edit"></i></a>	 
-						<a class=""  onclick="return confirmDel();" href="process.php?type=mattyp&op=del&id='.$mclass["id"].'"><i class="fas fa-trash-alt"></i></a>
+						<a onclick="malzemeTipiVeriCek('{{$mcinsi->id}}','{{$mcinsi->name}}')" class="editBtn" href="#"  data-toggle="modal" data-target="#editModal"  ><i class="fas fa-edit"></i></a>	 
+						<a class=""  onclick="return confirmDel();" href="{{URL::to('panel/mcinsi/sil/'.$mcinsi->id)}}"><i class="fas fa-trash-alt"></i></a>
    					</div>
 					
 				  
@@ -91,12 +91,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=mattyp&op=add" method="POST">
+     <form id="formHizmetler" action="{{URL::to('panel/mcinsi/ekle')}}" method="POST">
+		  @csrf
 		  <div class="modal-body">
 			 <div class="form-group">
 				<select class="form-control" name="classid" id="classid">
-				
-				
+				@foreach($mcinsleri as $mcinsi)
+				<option value="{{$mcinsi->c_id}}">{{$mcinsi->cname}}</option>
+				@endforeach
 				</select>
 			</div>
 			<input type="text" name="name" id="name" class="form-control" placeholder="Malzeme adı giriniz" required >
@@ -121,15 +123,13 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=mattyp&op=upd" method="POST">
-		  <div class="modal-body">
-		  <input type="hidden" name="edt-mtype-id" id="edt-mtype-id"  value="" class="form-control">	
-			 <div class="form-group">
-			 <input type="text" name="edt-mtype-class" id="edt-mtype-class" class="form-control" placeholder="Malzeme sınıfı giriniz" required >
-			</div>
-			 <div class="form-group">
-						<input type="text" name="edt-mtype-name" id="edt-mtype-name" class="form-control" placeholder="Malzeme tipi giriniz" required >
-		  </div>
+     <form id="formHizmetler" action="{{URL::to('panel/mcinsi/guncelle')}}" method="POST">
+		  @csrf
+		<div class="modal-body">
+		<div class="form-group">
+			<input type="hidden" name="editid" id="editid"  value="" class="form-control">	
+			<input type="text" name="editname" id="editname" class="form-control" placeholder="Malzeme tipi giriniz" required >
+		 </div>
 		  </div>
 		  <div class="modal-footer">
 			<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

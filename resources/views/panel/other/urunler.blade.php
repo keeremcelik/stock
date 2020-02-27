@@ -63,12 +63,12 @@
 				  <td><img id="prodMiniImg" class="prodMiniImg animated zoomIn" src="files/img/product/'.$mclass["img"].'" /></td>		 
 				  <td>{{$urun->code}}</td>
 				  <td>{{$urun->name}}</td>		 
-				  <td>{{$urun->type}}</td>		 
+				  <td>{{$urun->typename}}</td>		 
 				<td>
 					<div class="islemler">    
 					
-						<a onclick="productCek('.$mclass["id"].')" id="" class="editBtn" href="#"  data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>	 
-						<a class=""  onclick="return confirmDel();" href="process.php?type=prd&op=del&id='.$mclass["id"].'"><i class="fas fa-trash-alt"></i></a>
+						<a onclick="urunVeriCek('{{$urun->id}}','{{$urun->type}}','{{$urun->typename}}','{{$urun->code}}','{{$urun->name}}')" id="" class="editBtn" href="#"  data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>	 
+						<a class=""  onclick="return confirmDel();" href="{{URL::to('panel/urun/sil/'.$urun->id)}}"><i class="fas fa-trash-alt"></i></a>
    					</div>
 				</td>				 
 							  
@@ -100,12 +100,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=prd&op=add" method="POST" enctype="multipart/form-data">
+     <form id="formHizmetler" action="{{URL::to('panel/urun/ekle')}}" method="POST" enctype="multipart/form-data">
+     	@csrf
 		  <div class="modal-body">
 			 <div class="form-group">
 				<select class="form-control" name="type" id="type">
-				
-				
+				@foreach($mgrup as $grup)
+					<option value="{{$grup->id}}">{{$grup->name}}</option>
+				@endforeach
 				</select>
 			</div>
 			<div class="form-group">
@@ -140,25 +142,27 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=prd&op=upd" method="POST" enctype="multipart/form-data">
+     <form id="formHizmetler" action="{{URL::to('panel/urun/guncelle')}}" method="POST" enctype="multipart/form-data">
+     	@csrf
 		  <div class="modal-body">
 			 <div class="row" style="padding: 2vw;">
 					 <div class="col-lg-12">
 					 <div style="text-align:center;">
 				<img class="editImg " id="edt-img" name="edt-img" src=""/>
 			</div>
-			<input type="hidden" name="edt-prd-id" id="edt-prd-id"  value=" class="form-control">		
+			<input type="hidden" name="editid" id="editid"  value=" class="form-control">		
 		<div class="form-group">	
 				<label>Tip</label>
-				<input type="text" name="edt-prd-type" id="edt-prd-type" class="form-control"  readonly>	
+				<input type="text" name="edittypename" id="edittypename" class="form-control"  readonly>
+				<input type="hidden" name="edittype" id="edittype" value="0">
 			</div>			
 			<div class="form-group">
 			<label>Ürün Kodu</label>
-				<input type="text" name="edt-prd-code" id="edt-prd-code" class="form-control"  placeholder="Ürün kodu giriniz" required >
+				<input type="text" name="editcode" id="editcode" class="form-control"  placeholder="Ürün kodu giriniz" required >
 			</div>
 			<div class="form-group">
 			<label>Ürün Adı</label>
-				<input type="text" name="edt-prd-name" id="edt-prd-name" class="form-control" placeholder="Ürün adı giriniz" required >
+				<input type="text" name="editname" id="editname" class="form-control" placeholder="Ürün adı giriniz" required >
 			</div>	
 			<div class="form-group">
 					  <label>Ürün Resmi</label>
