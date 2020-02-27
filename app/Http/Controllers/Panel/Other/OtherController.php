@@ -11,9 +11,36 @@ class OtherController extends Controller{
 	
 	function departmanListele(){
 		$departman = DB::table('department')->where('status','=','1')->get();
+
 		return view('panel/other/departman',['departmanlar' => $departman]);
 	}
+	function departmanEkle(Request $request){
 
+		$name = $request->input('name');
+		$ekle = DB::table('department')->insertGetId(['name' => $name,"status"=> 1]);
+		if($ekle){
+			$this->departmanListele();
+			return redirect('panel/departman');
+		}
+		else{
+			echo "Departman Eklerken Hata oluştu.";
+			
+		}
+	}
+	function departmanGuncelle(Request $request){
+
+		$id 	= $request->input('editid');
+		$name 	= $request->input('editname');
+		$guncelle = DB::table('department')->where('id','=',$id)->update(['name' => $name]);
+		if($guncelle){
+			$this->departmanListele();
+			return redirect('panel/departman');
+		}
+		else{
+			echo "Departman güncellenirken Hata oluştu.";
+			
+		}
+	}
 	function depoListele(){
 		$depo = DB::table('stores')->where('status','=','1')->get();	
 		return view('panel/other/depo',['depolar' => $depo]);

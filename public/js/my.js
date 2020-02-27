@@ -15,18 +15,11 @@ function viewStock(element) {
 
 };
 
-function idCek(element) {		
-			$.ajax({
-				url:'ajax.php?type=dep&op=upd',
-				data: "id="+element,
-				dataType: 'json',
-				type:'post',
-				success:function(result){
-					//$('.veriler').html(result);
-					document.getElementById("editid").value = result.id; 
-					document.getElementById("editname").value = result.name; 
-				}
-			});
+function idCek($id,$name) {		
+		
+					document.getElementById("editid").value = $id; 
+					document.getElementById("editname").value = $name; 
+			
 };
 	function depoVeriCek(element) {		
 			$.ajax({

@@ -57,7 +57,7 @@
 				  <td>
 				  <div class="islemler">    
 					
-						<a  id="" onclick="idCek('.$dep["id"].')" data-id="'.$dep["id"].'" class="editBtn" href="#"   data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></a>	 
+						<a  id="" onclick="idCek( '{{ $dep->id }}','{{ $dep->name }}' );"  class="editBtn" href="#"   data-toggle="modal" data-target="#editModal"><i class="fas fa-edit"></i></a>	 
 						<a class=""  onclick="return confirmDel();" href="process.php?type=dep&op=del&id='.$dep["id"].'"><i class="fas fa-trash-alt"></i></a>
    					</div>
 					
@@ -85,7 +85,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=dep&op=add" method="POST">
+     <form id="formHizmetler" action="{{URL::to('panel/departman/ekle')}}" method="POST">
+     	@csrf
 		  <div class="modal-body">
 			 <div class="form-group">
 				
@@ -111,7 +112,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-     <form id="formHizmetler" action="process.php?type=dep&op=upd" method="POST">
+     <form id="formHizmetler" action="{{URL::to('panel/departman/guncelle')}}" method="POST">
+     	@csrf
 		  <div class="modal-body">
 			<input type="text" name="editid" id="editid" class="form-control" hidden readonly >
 			<input type="text" name="editname" id="editname" class="form-control" placeholder="Departman adı giriniz" required >
