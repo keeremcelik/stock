@@ -38,7 +38,7 @@ function urunVeriCek(id,type,typename,code,name,img){
 function idCek($id,$name) {			
 	document.getElementById("editid").value = $id; 
 	document.getElementById("editname").value = $name; 		
-};
+}
 function mUnitCek(element) {		
 	$.ajax({
 		url:'ajax.php?type=munit&op=upd',
@@ -50,7 +50,7 @@ function mUnitCek(element) {
 			document.getElementById("edt-munit-id").value = result.id; 
 			document.getElementById("edt-munit-name").value = result.name; 
 		}
-	});
+	})}
 
 function olcubirimVeriCek($id,$name) {			
 	document.getElementById("editid").value = $id; 
@@ -113,7 +113,7 @@ function productCek(element) {
 					document.getElementById("edt-img-label").innerHTML = img;
 				}
 			});
-};
+}
 function changeImgModal(element) {
 	$('#edt-img')[0].src = window.URL.createObjectURL(element);
 }
