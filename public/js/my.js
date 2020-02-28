@@ -25,12 +25,13 @@ function malzemeTipiVeriCek($id,$name){
 	document.getElementById("editname").value = $name;
 
 }
-function urunVeriCek(id,type,typename,code,name){
+function urunVeriCek(id,type,typename,code,name,img){
 	document.getElementById('editid').value = id;
 	document.getElementById('edittype').value = type;
 	document.getElementById('edittypename').value = typename;
 	document.getElementById('editcode').value = code;
 	document.getElementById('editname').value = name;
+	document.getElementById('editimg').src = img;
 }
 function idCek($id,$name) {		
 		

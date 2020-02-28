@@ -60,14 +60,14 @@
 				 <tbody  id="prodTable" >
 				 	@foreach($urunler as $urun)
 				 <tr>
-				  <td><img id="prodMiniImg" class="prodMiniImg animated zoomIn" src="files/img/product/'.$mclass["img"].'" /></td>		 
+				  <td><img id="prodMiniImg" class="prodMiniImg animated zoomIn" src="{{asset('storage/img/'.$urun->img)}}" /></td>		 
 				  <td>{{$urun->code}}</td>
 				  <td>{{$urun->name}}</td>		 
 				  <td>{{$urun->typename}}</td>		 
 				<td>
 					<div class="islemler">    
 					
-						<a onclick="urunVeriCek('{{$urun->id}}','{{$urun->type}}','{{$urun->typename}}','{{$urun->code}}','{{$urun->name}}')" id="" class="editBtn" href="#"  data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>	 
+						<a onclick="urunVeriCek('{{$urun->id}}','{{$urun->type}}','{{$urun->typename}}','{{$urun->code}}','{{$urun->name}}','{{asset('storage/img/'.$urun->img)}}')" id="" class="editBtn" href="#"  data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>	 
 						<a class=""  onclick="return confirmDel();" href="{{URL::to('panel/urun/sil/'.$urun->id)}}"><i class="fas fa-trash-alt"></i></a>
    					</div>
 				</td>				 
@@ -118,8 +118,8 @@
 			</div>
 			<div class="input-group mb-3">			 
 			  <div class="custom-file">
-				<input type="file" class="custom-file-input" name="prodImg" id="prodImg" aria-describedby="inputGroupFileAddon01">
-				<label class="custom-file-label" for="prodImg">Resim Seç</label>
+				<input type="file" class="custom-file-input" name="urunImg" id="urunImg" aria-describedby="inputGroupFileAddon01">
+				<label class="custom-file-label" for="urunImg">Resim Seç</label>
 			  </div>
 			</div>
 		  </div>
@@ -148,7 +148,7 @@
 			 <div class="row" style="padding: 2vw;">
 					 <div class="col-lg-12">
 					 <div style="text-align:center;">
-				<img class="editImg " id="edt-img" name="edt-img" src=""/>
+				<img class="editImg " id="editimg" name="editimg" src=""/>
 			</div>
 			<input type="hidden" name="editid" id="editid"  value=" class="form-control">		
 		<div class="form-group">	

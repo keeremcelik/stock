@@ -15,10 +15,17 @@ class UrunController extends Controller{
 	}
 
 	function urunEkle(Request $request){
+		echo "<pre>";
+		print_r($request->input());
+		echo "</pre>";
+		if (!empty($request->file('urunImg')) && $img = $this->imgUpload($request->file('urunImg'))) {
+			echo "img yüklendi";
+		}else{
+			$img = "default.jpg";
+		}
 		$type = $request->input('type');
 		$code = $request->input('code');
 		$name = $request->input('name');
-		$img = 'bos.jpg';
 		$ekle = DB::table('products')->insertGetId(['code'=>$code,'name'=>$name,'type'=>$type,'img'=>$img,'status'=> '1']);
 		if ($ekle) {
 			return redirect('panel/urunler');
@@ -27,6 +34,22 @@ class UrunController extends Controller{
 			exit();
 		}
 	}
+	
+	function imgUpload($file){
+		$name = $file->getClientOriginalName();
+		if ($path = $file->storeAs('public/img',$name)) {
+			return $name;
+		}else{
+			echo "resim yüklemede hata olustu";
+			return false;
+		}
+
+		print_r($name);
+		echo "<pre>";
+		print_r($file);
+		echo "</pre>";
+	}
+
 
 	function urunSil($id){
 		if ($this->urunBul($id)) {
@@ -62,4 +85,6 @@ class UrunController extends Controller{
 			}
 		}
 	}
+
+
 }
