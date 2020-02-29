@@ -75,8 +75,10 @@ class UrunController extends Controller{
 		$name = $request->input('editname');
 		$type = $request->input('edittype');
 		$code = $request->input('editcode');
+		$img = $request->file('edt-prd-img');
+		$img = $this->imgUpload($img);
 		if ($id && $this->urunBul($id)) {
-			$guncelle = DB::table('products')->where('id','=',$id)->update(['name'=>$name,'code'=>$code,'type'=>$type]);
+			$guncelle = DB::table('products')->where('id','=',$id)->update(['name'=>$name,'code'=>$code,'type'=>$type,'img'=>$img]);
 			if ($guncelle) {
 				print_r("guncelleme basarılı");
 				return redirect('/panel/urunler');
