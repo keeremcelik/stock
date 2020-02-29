@@ -82,7 +82,7 @@
 
                             <tr>
                                 <td  class="c-blue">{{$stok->code}}</td>	  
-                                <td  class="">Ürün Adı</td>	  
+                                <td  class="">{{$stok->pname}}</td>	  
                                 <td> 
                                     <div class="clearfix">
                                         <small class="pull-left"> Adet : {{$stok->piece}}</small>

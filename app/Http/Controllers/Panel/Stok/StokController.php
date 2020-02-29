@@ -9,11 +9,12 @@ use App\Http\Controllers\Controller;
 class StokController extends Controller{
 
 	function liste(){
-		$urunler = DB::table('stock')->where('status','=','1')->get();
-		/*echo "<pre>";
+		$urunler = DB::table('stock')->join('products','products.id','=','stock.p_id')->select('stock.*','products.name as pname')->where('stock.status','=','1')->get();
+		/*
+		echo "<pre>";
 		print_r($urunler);
 		echo "</pre>";
-		*/
+		exit();*/
 		return view('panel/stok/stokGoruntule',['stoklar' => $urunler]);
 	}
 
