@@ -115,7 +115,7 @@ function productCek(element) {
 			});
 }
 function changeImgModal(element) {
-	$('#edt-img')[0].src = window.URL.createObjectURL(element);
+	$('#editimg')[0].src = window.URL.createObjectURL(element);
 }
 
 	
