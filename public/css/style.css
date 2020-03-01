@@ -131,7 +131,7 @@ background:
 #ffffff;
 border-top: 3px solid
 #0156ff;
-margin-bottom: 20px;
+margin: 20px 0px;
 width: 100%;
 box-shadow: 0 1px 1px
     rgba(0,0,0,0.1);
@@ -168,4 +168,15 @@ box-shadow: 0 1px 1px
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     border-top: 1px solid 
     #f4f4f4;
+}
+
+.optionbar a{
+   background-color: #007bff;
+color: #fff;
+padding: 5px 15px;
+font-size: 0.8rem;
+border-radius: 2px;
+}
+.optionbar a:hover{
+  text-decoration: none;
 }

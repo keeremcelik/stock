@@ -57,10 +57,14 @@ Route::post('/panel/urun/ekle', 		'Panel\Urun\UrunController@UrunEkle');
 Route::post('/panel/urun/guncelle', 	'Panel\Urun\UrunController@UrunGuncelle');
 Route::get('/panel/urun/sil/{id}', 		'Panel\Urun\UrunController@UrunSil');
 
-Route::get('/panel/stocks', 			'Panel\Stok\StokController@liste');
-Route::get('/panel/stokEkle', 			'Panel\Stok\StokController@stokEkle');
-Route::get('/panel/stokGiris', 			'Panel\Stok\StokController@stokGiris');
-Route::get('/panel/stokCikis', 			'Panel\Stok\StokController@stokCikis');
+Route::get('/panel/stok', 				'Panel\Stok\StokController@stokListele');
+Route::get('/panel/stok/ekle', 			'Panel\Stok\StokController@stokEkleGoruntule');
+Route::get('/panel/stok/{islem}', 		'Panel\Stok\StokController@stokGirisCikisGoruntule');
+
+Route::post('/panel/stok/ekle', 		'Panel\Stok\StokController@stokEkle');
+Route::post('/panel/stok/giris', 		'Panel\Stok\StokController@stokGiris');
+Route::post('/panel/stok/cikis', 		'Panel\Stok\StokController@stokCikis');
+
 
 Route::get('/panel/kullanici/liste', 	'Panel\Kullanici\kullaniciController@kullaniciListele');
 Route::post('/panel/kullanici/ekle', 	'Panel\Kullanici\kullaniciController@kullaniciEkle');
