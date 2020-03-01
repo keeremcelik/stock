@@ -32,27 +32,8 @@
 					<a href="{{url('/panel/mcinsi')}}" class="list-group-item" data-parent="#menu1"> Malzeme Cinsi </a>
 					<a href="{{url('/panel/urunler')}}" class="list-group-item" data-parent="#menu1"> Ürün İşlemleri</a>
 				</div>
-<<<<<<< HEAD
-				<a href="#menu2" class="list-group-item collapsed list-group-item-action bg-light" data-toggle="collapse" ><i class="fas fa-cubes"></i> STOK İşlemleri</a>
-				<div class="collapse" id="menu2">
-					<a href="{{url('/panel/stocks')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-plus"></i> STOK İşlemleri</a>
-					<a href="{{url('/panel/stokEkle')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-plus"></i> Stok Ürün Ekleme</a>
-					<a href="{{url('/panel/stokGiris')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Giriş Yap</a>
-					<a href="{{url('/panel/stokCikis')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Çıkış Yap</a>
-				</div>
-				<a href="{{URL::to('panel/kullanici/liste')}}" class="list-group-item collapsed list-group-item-action bg-light" ><i class="fas fa-users"></i> Kullanıcı İşlemleri</a>
-=======
-				<a href="{{url('/panel/stok')}}" class="list-group-item collapsed list-group-item-action" ><i class="fas fa-cubes"></i> STOK İşlemleri</a>
-				
-				<a href="#menu3" class="list-group-item collapsed list-group-item-action" data-toggle="collapse" ><i class="fas fa-users"></i> Kullanıcı İşlemleri</a>
->>>>>>> 059f0e6b7cdaa1f0fd9bf59da279d138d5ab3216
-				<div class="collapse" id="menu3">
-					<a href="{{url('/panel/kullanici/liste')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-plus"></i> Kullanıcı Listesi</a>
-					<a href="{{url('/panel/kullanici/ekle')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-plus"></i> Kullanıcı Ekle</a>
-					<a href="{{url('/panel/kullanici/guncelle')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-edit"></i> Kullanıcı Güncelleme</a>
-					<a href="{{url('/panel/kullanici/sil')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-minus"></i> Kullanıcı Silme</a>
-				</div>
-				
+				<a href="{{url('/panel/stok')}}" class="list-group-item collapsed list-group-item-action" ><i class="fas fa-cubes"></i> STOK İşlemleri</a>				
+				<a href="{{URL::to('panel/kullanici/liste')}}" class="list-group-item collapsed list-group-item-action" ><i class="fas fa-users"></i> Kullanıcı İşlemleri</a>
 			</div>
 			<div class="sidebar-footer">
 					<a href="#">
