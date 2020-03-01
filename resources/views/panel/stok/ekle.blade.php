@@ -6,7 +6,7 @@
 			<div class="col-sm-6">   
 				<ol class="breadcrumb float-sm-left">
 					<li class="breadcrumb-item"><a href="index.php">Ana Sayfa</a></li>
-					<li class="breadcrumb-item active"><a href="stocks.php">Stok İşlemleri</a></li>
+					<li class="breadcrumb-item active"><a href="{{url('panel/stok')}}">Stok İşlemleri</a></li>
 					<li class="breadcrumb-item active">Stok Ekle</li>
 				</ol>		  
 
@@ -25,7 +25,8 @@
 				<div class="row">
 					<div class="col-lg-12">
 
-						<form id="" action="process.php?type=stock&op=add" method="POST" enctype="multipart/form-data">
+						<form id="" action="{{URL::to('panel/stok/ekle')}}" method="POST" enctype="multipart/form-data">
+							@csrf
 							<div class="row" style="padding: 2vw;">						
 								<div class="col-lg-12">
 
@@ -36,12 +37,11 @@
 									<div class="form-group">	
 										<label>Ürün Kodu</label>
 										<select class="form-control" name="products" id="products">
-											<?php
-											$sorgu=$baglanti->query("SELECT id,code FROM products");	
-											while($mclass = $sorgu->fetch(PDO::FETCH_ASSOC)){
-												echo '<option value="'.$mclass["id"].'" name="pid" id="pid">'.$mclass["code"].'</option>';
-											}												
-											?>											
+											@foreach($urunler as $urun)
+											<option value="{{$urun->id}}" name="pid" id="pid">
+											{{$urun->code}}
+											</option>
+											@endforeach										
 										</select>
 									</div>		
 									<div class="form-group">	
@@ -49,16 +49,25 @@
 										<input type="text" name="barcode" id="barcode" class="form-control" value="" >	
 									</div>	
 									<div class="form-group">	
+										<label>Ölçü Birimi Seçiniz</label>
+										<select class="form-control" name="obirim" id="obirim">
+											@foreach($olcubirimleri as $obirim)
+											<option value="{{$obirim->id}}" name="obid" id="obid">
+											{{$obirim->name}}
+											</option>
+											@endforeach	
+											
+										</select>
+									</div>
+									<div class="form-group">	
 										<label>Depo Seçiniz</label>
 										<select class="form-control" name="stores" id="stores">
-											<?php
-											$sorgu=$baglanti->query("SELECT id,name FROM stores");	
-											while($stores = $sorgu->fetch(PDO::FETCH_ASSOC)){
-												echo '<option value="'.$stores["id"].'" name="pid" id="pid">'.$stores["name"].'</option>';
-											}
-
-											?>
-
+										@foreach($depolar as $depo)
+											<option value="{{$depo->id}}" name="sid" id="sid">
+											{{$depo->code}}
+											</option>
+											@endforeach	
+											
 										</select>
 									</div>
 									<div class="form-group ">	
@@ -83,6 +92,12 @@
 										<label>Satış Fiyat</label>
 										<input type="number" step="0.01" name="sales" id="sales" class="form-control" value="" >	
 									</div>
+									<div class="form-group justnum">	
+										<label>KDV</label>
+										<input type="number" name="kdv" id="kdv" class="form-control" value="" placeholder="8,18" >	
+										<span>Not : Yüzdelik işareti olmadan yazınız. </span>
+									</div>
+
 									<div class="form-group">	
 										<label>Açıklama</label>
 										<textarea class="form-control" rows="5"  name="description" id="description"></textarea>

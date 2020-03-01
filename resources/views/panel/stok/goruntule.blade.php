@@ -18,13 +18,24 @@
 
 <!-- Main content -->
 <section class="content">
-
+    <div class="row">
+         <div class="col-md-12">
+        <div class="optionbar">
+            <div class="float-right">
+                <a class="" href="{{url('panel/stok/ekle')}}">Yeni Stok Kartı Oluştur</a>
+                <a class="" href="{{url('panel/stok/giris')}}">Stok Giriş Fişi Oluştur</a>
+                <a class=""  href="{{url('panel/stok/cikis')}}">Stok Çıkış Fişi Oluştur</a>
+            </div>
+         
+        </div>
+    </div>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header">
                     <div class="row">			
-                        <div class="col-md-10">				
+                        <div class="col-md-12">				
                             <div class="md-form mt-0">
                                 <form method="post" action="stocks.php">
 
@@ -34,20 +45,6 @@
                                     tabindex="-1" />
 
                                 </form>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-
-                            <div class="dropdown">
-                                <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Seçenekler
-                                </a>
-
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="addStock.php">Stok Ürün Ekle</a>
-                                    <a class="dropdown-item" href="#">Giriş Fişi Oluştur</a>
-                                    <a class="dropdown-item" href="#">Çıkış Fişi Oluştur</a>
-                                </div>
                             </div>
                         </div>
                     </div>
