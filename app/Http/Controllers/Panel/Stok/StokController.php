@@ -154,6 +154,38 @@ class StokController extends Controller{
 		}
 		
 	}
+	function stokTransferGoruntule(){
+		$stoklar 	= DB::table('stock')->where('status','=','1')->get();
+		$depolar 	= DB::table('stores')->where('status','=','1')->get();
+		return view('panel/stok/transfer',['depolar' => $depolar,'stoklar'=>$stoklar]);
+	}
+	function stokTransfer(Request $request){
+		$stok 		= $request->input('stoklar');
+		$girisdepo 	= $request->input('inpstores');
+		$cikisdepo 	= $request->input('outstores');
+		$miktar 	= $request->input('piece');
+		$fiyat 		= $request->input('unitprice');
+		$raf 		= $request->input('description');
+		$date		= date('Y.m.d H:i:s');
+
+		$exhange = DB::table('exchange')->insertGetId([
+			'inpst_id'=> $girisdepo,
+			'outst_id'=> $cikisdepo,
+			'stock_id'=> $stok,
+			'amount'=> $miktar,
+			'unit_price'=> $fiyat,
+			'date'=> $date,
+			'status'=> 1
+		]);
+		if($exhange){
+			$this->stokListele();
+			return redirect('panel/stok');
+		}
+		else{
+			echo "Exchange işlemi yapılırken Hata oluştu.";			
+		}
+		
+	}
    function stokGuncellemeView(){
 
    		return view('panel/stok/stokDegisim');

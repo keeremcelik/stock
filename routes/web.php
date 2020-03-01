@@ -59,8 +59,10 @@ Route::get('/panel/urun/sil/{id}', 		'Panel\Urun\UrunController@UrunSil');
 
 Route::get('/panel/stok', 				'Panel\Stok\StokController@stokListele');
 Route::get('/panel/stok/ekle', 			'Panel\Stok\StokController@stokEkleGoruntule');
+Route::get('/panel/stok/transfer', 		'Panel\Stok\StokController@stokTransferGoruntule');
 Route::get('/panel/stok/{islem}', 		'Panel\Stok\StokController@stokGirisCikisGoruntule');
 
+Route::post('/panel/stok/transfer', 	'Panel\Stok\StokController@stokTransfer');
 Route::post('/panel/stok/ekle', 		'Panel\Stok\StokController@stokEkle');
 Route::post('/panel/stok/giris', 		'Panel\Stok\StokController@stokGiris');
 Route::post('/panel/stok/cikis', 		'Panel\Stok\StokController@stokCikis');
@@ -68,8 +70,8 @@ Route::post('/panel/stok/cikis', 		'Panel\Stok\StokController@stokCikis');
 
 Route::get('/panel/kullanici/liste', 	'Panel\Kullanici\kullaniciController@kullaniciListele');
 Route::post('/panel/kullanici/ekle', 	'Panel\Kullanici\kullaniciController@kullaniciEkle');
-Route::post('/panel/kullanici/guncelle', 'Panel\Kullanici\kullaniciController@kullaniciGuncelle');
-Route::get('/panel/kullanici/sil/{id}', 		'Panel\Kullanici\kullaniciController@kullaniciSil');
+Route::post('/panel/kullanici/guncelle','Panel\Kullanici\kullaniciController@kullaniciGuncelle');
+Route::get('/panel/kullanici/sil/{id}', 'Panel\Kullanici\kullaniciController@kullaniciSil');
 
 
 /*
