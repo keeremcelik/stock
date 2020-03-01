@@ -68,8 +68,8 @@ Route::post('/panel/stok/cikis', 		'Panel\Stok\StokController@stokCikis');
 
 Route::get('/panel/kullanici/liste', 	'Panel\Kullanici\kullaniciController@kullaniciListele');
 Route::post('/panel/kullanici/ekle', 	'Panel\Kullanici\kullaniciController@kullaniciEkle');
-Route::post('/panel/kullanici/guncelle', 'Panel\Kullanici\kullaniciController@kullaniciGuncelle');
-Route::get('/panel/kullanici/sil/{id}', 		'Panel\Kullanici\kullaniciController@kullaniciSil');
+Route::post('/panel/kullanici/guncelle',	'Panel\Kullanici\kullaniciController@kullaniciGuncelle');
+Route::get('/panel/kullanici/sil/{id}', 	'Panel\Kullanici\kullaniciController@kullaniciSil');
 
 
 /*
