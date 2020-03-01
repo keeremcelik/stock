@@ -25,6 +25,7 @@
                 <a class="" href="{{url('panel/stok/ekle')}}">Yeni Stok Kartı Oluştur</a>
                 <a class="" href="{{url('panel/stok/giris')}}">Stok Giriş Fişi Oluştur</a>
                 <a class=""  href="{{url('panel/stok/cikis')}}">Stok Çıkış Fişi Oluştur</a>
+                <a class=""  href="{{url('panel/stok/transfer')}}">Stok Transfer </a>
             </div>
          
         </div>

@@ -32,8 +32,12 @@
 					<a href="{{url('/panel/mcinsi')}}" class="list-group-item" data-parent="#menu1"> Malzeme Cinsi </a>
 					<a href="{{url('/panel/urunler')}}" class="list-group-item" data-parent="#menu1"> Ürün İşlemleri</a>
 				</div>
-				<a href="{{url('/panel/stok')}}" class="list-group-item collapsed list-group-item-action" ><i class="fas fa-cubes"></i> STOK İşlemleri</a>				
-				<a href="{{URL::to('panel/kullanici/liste')}}" class="list-group-item collapsed list-group-item-action" ><i class="fas fa-users"></i> Kullanıcı İşlemleri</a>
+
+				<a href="{{url('/panel/stok')}}" class="list-group-item collapsed list-group-item-action" ><i class="fas fa-cubes"></i> STOK İşlemleri</a>
+			
+				<a href="{{URL::to('panel/kullanici/liste')}}" class="list-group-item collapsed list-group-item-action " ><i class="fas fa-users"></i> Kullanıcı İşlemleri</a>
+
+
 			</div>
 			<div class="sidebar-footer">
 					<a href="#">
