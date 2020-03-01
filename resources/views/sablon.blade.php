@@ -38,8 +38,9 @@
 					<a href="{{url('/panel/stokGiris')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Giriş Yap</a>
 					<a href="{{url('/panel/stokCikis')}}" class="list-group-item" data-parent="#menu2"><i class="fas fa-minus"></i> STOK Çıkış Yap</a>
 				</div>
-				<a href="#menu3" class="list-group-item collapsed list-group-item-action bg-light" data-toggle="collapse" ><i class="fas fa-users"></i> Kullanıcı İşlemleri</a>
+				<a href="{{URL::to('panel/kullanici/liste')}}" class="list-group-item collapsed list-group-item-action bg-light" ><i class="fas fa-users"></i> Kullanıcı İşlemleri</a>
 				<div class="collapse" id="menu3">
+					<a href="{{url('/panel/kullanici/liste')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-plus"></i> Kullanıcı Listesi</a>
 					<a href="{{url('/panel/kullanici/ekle')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-plus"></i> Kullanıcı Ekle</a>
 					<a href="{{url('/panel/kullanici/guncelle')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-edit"></i> Kullanıcı Güncelleme</a>
 					<a href="{{url('/panel/kullanici/sil')}}" class="list-group-item" data-parent="#menu3"><i class="fas fa-user-minus"></i> Kullanıcı Silme</a>
