@@ -15,15 +15,20 @@ function viewStock(element) {
 
 };
 
-
-function depoVeriCek($id,$code,$name){
-	document.getElementById("editid").value = $id;
-	document.getElementById("editcode").value = $code;
-	document.getElementById("editname").value = $name;
+function kullaniciVeriCek(id,name,status){
+	document.getElementById("editid").value = id;
+	document.getElementById("editname").value = name;
+	//document.getElementById('editstatus').options[status-1].selected = true;
 }
-function malzemeTipiVeriCek($id,$name){
-	document.getElementById("editid").value = $id;
-	document.getElementById("editname").value = $name;
+
+function depoVeriCek(id,code,name){
+	document.getElementById("editid").value = id;
+	document.getElementById("editcode").value = code;
+	document.getElementById("editname").value = name;
+}
+function malzemeTipiVeriCek(id,name){
+	document.getElementById("editid").value = id;
+	document.getElementById("editname").value = name;
 
 }
 function urunVeriCek(id,type,typename,code,name,img){
@@ -35,9 +40,9 @@ function urunVeriCek(id,type,typename,code,name,img){
 	document.getElementById('editimg').src = img;
 }
 
-function idCek($id,$name) {			
-	document.getElementById("editid").value = $id; 
-	document.getElementById("editname").value = $name; 		
+function idCek(id,name) {			
+	document.getElementById("editid").value = id; 
+	document.getElementById("editname").value = name; 		
 }
 function mUnitCek(element) {		
 	$.ajax({
