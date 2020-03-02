@@ -19,7 +19,8 @@ class kullanici
         
         if ($kullanici->id) {
             echo "<pre>";
-                print_r($kullanici);
+                print_r($kullanici->id);
+                print_r($kullanici->name." ".$kullanici->surname);
             echo "</pre>";
         }else{
             return redirect()->back()->with('message','hataaa');

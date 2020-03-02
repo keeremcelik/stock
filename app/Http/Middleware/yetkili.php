@@ -16,14 +16,13 @@ class yetkili
     public function handle($request, Closure $next)
     {
         $yetki = $request->session()->get('kullanici')->authority;
-            print_r($yetki);
+        print_r($request->path());
         if ($yetki == 1) {
             echo "yekili bey";
         }else{
             die();
         }
         //print_r($request->session()->get('kullanici')->authority == 1);
-            echo "yekili bey";
         return $next($request);
     }
 }
