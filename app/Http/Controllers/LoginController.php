@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class LoginController extends Controller
 {
@@ -16,16 +17,21 @@ class LoginController extends Controller
     		$username = $request->input('name');
     		$pass = md5($request->input('password'));
 
-    		$kullanıcı = 
+    		$kullanici = 
     			DB::table('users')
-    						->where('username','=',$username)
+    						->where('email','=',$username)
     						->where('password','=',$pass)
-    						->get('id');
-    		if (!empty($kullanıcı)) {
-    			$_SESSION['kullanıcı'] = $kullanıcı;
-    			
+    						->get()->first();
+                            echo "<pre>";
+                            print_r($kullanici);
+                            echo "</pre>";
+            if (!empty($kullanici)) {
+                Log::info('Kullanıcı Giriş Yaptı. ID = '.$kullanici->id);
+    			$request->session()->put('kullanici',$kullanici);
     			return redirect('panel');
-    		}
+    		}else{
+                return redirect('/');
+            }
     	}else{
     		return view('login');
     	}

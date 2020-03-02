@@ -37,6 +37,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
+            'name' => 'log-kanalı',
             'channels' => ['single'],
             'ignore_exceptions' => false,
         ],

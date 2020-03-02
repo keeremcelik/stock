@@ -12,6 +12,9 @@
 
 </head>
 <body>
+    @isset($message)
+    {{$message}}
+    @endisset
     <div class="wrapper" id="wrapper">      
         <div class="container">
             <div class="row">

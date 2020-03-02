@@ -10,21 +10,29 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-*/
 
 Route::get('/', 						'LoginController@login');
 Route::post('/', 						'LoginController@loginIslem');
 
-Route::get('/panel', 					'PanelController@index');
+Route::group(['middleware'=>['kullanici']],function(){
+	Route::get('/panel', 					'PanelController@index');
+	Route::group(['middleware'=>['yetkili']],function(){
+		Route::get('/panel/departman/sil/{id}','Panel\Departman\DepartmanController@departmanSil');
+		Route::post('/panel/departman/ekle',	'Panel\Departman\DepartmanController@departmanEkle');
+		Route::post('/panel/departman/guncelle','Panel\Departman\DepartmanController@departmanGuncelle');
+		Route::get('/panel/departman', 			'Panel\Departman\DepartmanController@departmanListele');
+	});
+});
 
-Route::get('/panel/departman/sil/{id}','Panel\Departman\DepartmanController@departmanSil');
-Route::post('/panel/departman/ekle',	'Panel\Departman\DepartmanController@departmanEkle');
-Route::post('/panel/departman/guncelle','Panel\Departman\DepartmanController@departmanGuncelle');
-Route::get('/panel/departman', 			'Panel\Departman\DepartmanController@departmanListele');
+Route::group(['middleware'=>['kullanici']],function(){
+	
+	Route::group(['middleware'=>['yetkili']],function(){
+
+	});
+});
+
+//Route::get('/panel', 					'PanelController@index')->middleware('kullanici');
+
 
 Route::get('/panel/olcubirim/sil/{id}',	'Panel\OlcuBirim\OlcuBirimController@olcubirimSil');
 Route::post('/panel/olcubirim/ekle',	'Panel\OlcuBirim\OlcuBirimController@olcubirimEkle');
@@ -66,6 +74,7 @@ Route::post('/panel/stok/transfer', 	'Panel\Stok\StokController@stokTransfer');
 Route::post('/panel/stok/ekle', 		'Panel\Stok\StokController@stokEkle');
 Route::post('/panel/stok/giris', 		'Panel\Stok\StokController@stokGiris');
 Route::post('/panel/stok/cikis', 		'Panel\Stok\StokController@stokCikis');
+
 
 
 Route::get('/panel/kullanici/liste', 	'Panel\Kullanici\kullaniciController@kullaniciListele');
