@@ -14,15 +14,62 @@
 Route::get('/', 						'LoginController@login');
 Route::post('/', 						'LoginController@loginIslem');
 
+
+
+
+
+
+
+
+
+
+
+
 Route::group(['middleware'=>['kullanici']],function(){
+
 	Route::get('/panel', 					'PanelController@index');
+
+
 	Route::group(['middleware'=>['yetkili']],function(){
-		Route::get('/panel/departman/sil/{id}','Panel\Departman\DepartmanController@departmanSil');
-		Route::post('/panel/departman/ekle',	'Panel\Departman\DepartmanController@departmanEkle');
-		Route::post('/panel/departman/guncelle','Panel\Departman\DepartmanController@departmanGuncelle');
+
+
 		Route::get('/panel/departman', 			'Panel\Departman\DepartmanController@departmanListele');
+		Route::post('/panel/departman/ekle',	'Panel\Departman\DepartmanController@departmanEkle');
+		Route::get('/panel/departman/sil/{id}','Panel\Departman\DepartmanController@departmanSil');
+		Route::post('/panel/departman/guncelle','Panel\Departman\DepartmanController@departmanGuncelle');
+
 	});
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Route::group(['middleware'=>['kullanici']],function(){
 	

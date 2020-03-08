@@ -12,7 +12,20 @@ class KullaniciController extends Controller{
 
 	function kullaniciListele(){
 		$liste = DB::table('users')->where('status','=','1')->get();
-		return view($this->baseViewUrl,['kullanicilar' => $liste]);
+		$menu = $this->menuGetir();
+		echo "<pre>";
+		var_dump($menu);
+		echo "</pre>";
+		/*
+		foreach ($menu as $key => $value) {
+			$menu[$value->name] = 
+			DB::table('modules')->where('m_id','=',$value->id)->get();
+			unset($menu[$key]);
+		}
+		echo "<pre>";
+		print_r($menu);
+		echo "</pre>";*/
+		return view($this->baseViewUrl,['kullanicilar' => $liste,'menu'=>$menu]);
 	}
 	
 	function kullaniciEkle(Request $request){
@@ -22,7 +35,11 @@ class KullaniciController extends Controller{
 		if ($password === $repassword) {
 			$pass = md5($password);
 			$ekle = DB::table('users')->insertGetId([
-							'username'=>$name,
+							'email'=>$name,
+							'name'=>$name,
+							'surname'=>$name,
+							'phone'=>'05317353290',
+							'dep_id'=>1,
 							'password'=>$pass,
 							'status'=> 1,
 							'authority'=> 0	
@@ -77,4 +94,41 @@ class KullaniciController extends Controller{
 		return redirect($url)->with($data);
 	}
 	
+	function menuGetir(){
+		$data = DB::table('modules')->select('*')->get();
+		$menu = array();
+
+		foreach ($data as $key => $value) {
+			if ($value->m_id == 0) {
+				$menu[$value->id]['name'] = $value->name;
+				$m_name = $value->name;
+			}else{
+				$menu[$value->m_id]['elements'][] = array(
+					'id'=>$value->id,
+					'url'=>$value->url,
+					'name'=>$value->name
+				);
+			}
+		}
+		return $menu;
+		/*
+		echo "<pre>";
+		print_r($ustMenu);
+		echo "</pre>";
+		*/
+		/*
+		//echo "<select>";
+		foreach ($ustMenu as $key => $value) {
+		//	echo '<optgroup label="'.$value['name'].'">';
+			if (is_array($value['elements'])) {
+				foreach ($value['elements'] as $k => $v) {
+		//			print_r($v);
+		//			echo '<option>'.$v['name'].'</option>';
+				}
+			}
+		//	echo '</optgroup>';
+		}
+		//echo "</select>";
+*/
+	}
 }

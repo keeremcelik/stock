@@ -17,7 +17,7 @@ class kullanici
     {   
         $kullanici = $request->session()->get('kullanici');
         
-        if ($kullanici->id) {
+        if (isset($kullanici->id)) {
             echo "<pre>";
                 print_r($kullanici->id);
                 print_r($kullanici->name." ".$kullanici->surname);
