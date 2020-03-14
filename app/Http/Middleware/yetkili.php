@@ -18,12 +18,7 @@ class yetkili
         $yetki = $request->session()->get('kullanici')->authority;
        
         if ($yetki == 1) {
-<<<<<<< HEAD
-            echo "<br>";
-            echo "yekili bey";
-=======
-          
->>>>>>> d6b7fd31b40643edec00a58b51339b52b98af0f2
+
         }else{
             die();
         }
