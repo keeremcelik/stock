@@ -51,8 +51,8 @@ class FirmaController extends Controller{
 	function firmaGuncelle(Request $request){
 
 		$id 		= $request->input('editid');
-		$name 		= $request->input('editname');
 		$code 		= $request->input('editcode');
+		$name 		= $request->input('editname');
 		$address 	= $request->input('editaddress');
 		$taxadm 	= $request->input('edittax-adm');
 		$taxnum 	= $request->input('edittax-num');
@@ -62,9 +62,10 @@ class FirmaController extends Controller{
 		$gsm 		= $request->input('editgsm');
 		$web 		= $request->input('editweb');
 		$email 		= $request->input('editemail');
-		$guncelle 	= DB::table('companies')->where('id','=',$id)->update([
-			'name'				=>	$name,
+
+		$guncelle = DB::table('companies')->where('id','=',$id)->update([
 			'code'				=>	$code,
+			'name'				=>	$name,
 			'address'			=>	$address,
 			'tax_administration'=>	$taxadm,
 			'tax_number'		=>	$taxnum,
@@ -74,7 +75,8 @@ class FirmaController extends Controller{
 			'gsm'				=>	$gsm,
 			'web'				=>	$web,
 			'email'				=>	$email,
-			'status'			=> 1]);
+			'status'			=> 1
+		]);
 		if($guncelle){
 			$this->firmaListele();
 			return redirect('panel/firmalar');
