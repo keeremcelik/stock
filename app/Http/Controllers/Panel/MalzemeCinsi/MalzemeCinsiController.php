@@ -40,7 +40,8 @@ class MalzemeCinsiController extends Controller{
 
 	function malzemeCinsiListele(){
 		$cinsler = DB::table('m_type')->join('m_class','m_type.c_id','=','m_class.id')->select('m_type.*','m_class.name as cname')->where('m_type.status','=','1')->get();
-		return view('panel/other/mcinsi',['mcinsleri' => $cinsler]);
+		$mgruplari = DB::table('m_class')->where('status','=','1')->get();
+		return view('panel/other/mcinsi',['mcinsleri' => $cinsler,'mgruplari' => $mgruplari]);
 	}
 
 	function malzemeCinsiGuncelle(Request $request){

@@ -1,26 +1,13 @@
 @extends('sablon')
 @section('icerik')
-
-<section class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">   
-                <ol class="breadcrumb float-sm-left">
-                    <li class="breadcrumb-item"><a href="#">Ana Sayfa</a></li>
-                    <li class="breadcrumb-item active">Stok İşlemleri</li>
-                </ol>		  
-
-            </div>
-
-        </div>
-    </div><!-- /.container-fluid -->
-</section>
-
-<!-- Main content -->
 <section class="content">
+   
     <div class="row">
-         <div class="col-md-12">
-        <div class="optionbar">
+        <div class="col-md-12">
+            <div class="box">
+                <div class="box-header">
+                    <h4 class="box-title">STOK Listesi</h4>       
+                     <div class="optionbar">
             <div class="float-right">
                 <a class="" href="{{url('panel/stok/ekle')}}">Yeni Stok Kartı Oluştur</a>
                 <a class="" href="{{url('panel/stok/giris')}}">Stok Giriş Fişi Oluştur</a>
@@ -28,35 +15,17 @@
                 <a class=""  href="{{url('panel/stok/transfer')}}">Stok Transfer </a>
             </div>
          
-        </div>
-    </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="box">
-                <div class="box-header">
-                    <div class="row">			
-                        <div class="col-md-12">				
-                            <div class="md-form mt-0">
-                                <form method="post" action="stocks.php">
-
-                                    <input class="form-control" id="search_text" name="search_text" type="text" value="" placeholder="Search" aria-label="Search">						 
-                                    <input type="submit" 
-                                    style="position: absolute; left: -9999px; width: 1px; height: 1px;"
-                                    tabindex="-1" />
-
-                                </form>
-                            </div>
-                        </div>
+        </div>       
+                    <div class="optionbar">
+                        <input class="form-control" id="search_text" name="search_text" type="text" value="" placeholder="Search" aria-label="Search">                         
                     </div>
-
                 </div>
 
                 <!-- /.box-header -->
 
                 <div class="box-body table-responsive no-padding">
-                    <table id="" class="table table-bordered">
-                        <thead class="thead-dark">
+                    <table id="" class="table">
+                        <thead class="">
                             <tr>
 
                                 <th width="10%">Stok Kodu</th>

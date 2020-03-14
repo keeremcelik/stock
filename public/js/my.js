@@ -1,3 +1,14 @@
+
+function modalOpen($tip){
+	$(".popup").fadeOut();
+
+		$($tip).fadeToggle();	
+
+}
+function modalClose($modalName){
+	$($modalName).fadeOut();	
+}
+
 function confirmDel() {
  var agree=confirm("Bu içeriği silmek istediğinizden emin misiniz?\nBu işlem geri alınamaz!");
  if (agree) {
@@ -124,19 +135,3 @@ function changeImgModal(element) {
 }
 
 	
-/*$(document).ready(function(){
-	$(document).on('click', '#view', function(e){
-	 
-	  //e.preventDefault();
-	 
-	//  $('#modalid').val($(this).data('id'));
-	function uygula() {
-		   metin = $('input[name="modalid"]').val();
-		   $.get('stocks.php', {id: metin}, function (gelen_cevap) {
-			  $('#code').html(gelen_cevap);
-		   });
-		}
-	
-
-	});
-});*/

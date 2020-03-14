@@ -16,9 +16,9 @@ class yetkili
     public function handle($request, Closure $next)
     {
         $yetki = $request->session()->get('kullanici')->authority;
-        print_r($request->path());
+       
         if ($yetki == 1) {
-            echo "yekili bey";
+          
         }else{
             die();
         }
