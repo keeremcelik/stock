@@ -18,10 +18,12 @@ class kullanici
         $kullanici = $request->session()->get('kullanici');
         
         if (isset($kullanici->id)) {
+            /*
             echo "<pre>";
                 print_r($kullanici->id);
                 print_r($kullanici->name." ".$kullanici->surname);
             echo "</pre>";
+            */
         }else{
             return redirect()->back()->with('message','hataaa');
             die;
