@@ -37,8 +37,15 @@
 					<div class="collapse" id="olcubirim">
 						<a href="{{url('/panel/olcubirim')}}" class="modulislem" data-parent="#yonetim"> <span class="modul-title">Ölçü Birimleri Listele</span></a>
 					</div>
-					<a href="{{URL::to('panel/kullanici/liste')}}" class="collapsed altmodul" data-parent="#yonetim"><i class="m-icon fas fa-users-cog"></i><span class="modul-title">Kullanıcı İşlemleri </span></a>
 
+					<span class="anamodul">Kullanıcı Modülü</span>
+
+					<a href="#kullanici" class="collapsed altmodul" data-toggle="collapse"><i class="m-icon fas fa-users-cog"></i><span class="modul-title">Kullanıcı İşlemleri </span></a>
+					<div class="collapse" id="kullanici">
+						<a href="{{URL::to('panel/kullanici/liste')}}" class="modulislem" data-parent="#kullanici"> <span class="modul-title">Kullanıcı İşlemleri</span></a>
+						
+						
+					</div>
 					<span class="anamodul">Stok Modülü</span>
 
 					<a href="#stok" class="collapsed altmodul" data-toggle="collapse"><i class="m-icon fas fa-box"></i><span class="modul-title"> STOK Modülü </span></a>
