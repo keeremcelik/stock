@@ -16,8 +16,7 @@
 		<div id="sidebar">
 			<div class="sidebar-content">	
 				<div class="sidebar-head">
-
-					<button class="btnToggle" onclick="sidebarToggle()" id="menu-toggle">☰</button>	
+					<span class="title"><i class="fab fa-sticker-mule"></i> STOK</span>				
 				</div>
 				<div class="sidebar-menu">
 					<a href="{{url('/panel')}}" class=""><i class="m-icon fas fa-tachometer-alt"></i><span class="modul-title">Ana Sayfa</span></a>
@@ -64,13 +63,13 @@
 
 		<div id="page-content" style="width: 100%">
 			<nav class="navbar">
-
+					
 				<div class="container-fluid">
 					<div class="navbar-header">
-					
+						<button class="btnToggle" onclick="sidebarToggle()" id="menu-toggle">☰</button>	
 					</div>
 					<ul class="nav navbar-nav">
-						
+					
 
 					</ul>
 					<ul class="nav navbar-nav navbar-right navbar-btns">

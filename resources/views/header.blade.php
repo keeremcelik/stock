@@ -12,11 +12,12 @@
   <title>STOK</title>
 
   <!-- Bootstrap core CSS -->
-
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
   <link href="files/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom styles for this template -->
   <link href="files/css/simple-sidebar.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+  
 	<link rel="stylesheet" href="files/css/jquery-ui-git.css">
 	<link rel="stylesheet" type="text/css" href="files/css/animate.css">
 	<link rel="stylesheet" type="text/css" href="files/css/style.css">
