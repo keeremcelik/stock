@@ -29,7 +29,7 @@
 				<td>{{$kullanici->name.' '.$kullanici->surname}}</td>
 				<td>
 					<div class="islemler"> 
-						<a onclick="kullaniciVeriCek('{{$kullanici->id}}','{{$kullanici->name.''.$kullanici->surname}}')" id="" class="editBtn" href="#"  data-toggle="modal" data-target="#yetkiModal" >Yetkilendir</a>	 
+						<a onclick="kullaniciVeriCek('{{$kullanici->id}}','{{$kullanici->name.''.$kullanici->surname}}')" id="" class="editBtn" href="#"  data-toggle="modal" data-target="#userYetkilendir" >Yetkilendir</a>	 
 						<a onclick="kullaniciVeriCek('{{$kullanici->id}}','{{$kullanici->name.''.$kullanici->surname}}')" id="" class="editBtn" href="#"  data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>	 
 						<a class=""  onclick="return confirmDel();" href="{{URL::to('panel/kullanici/sil/'.$kullanici->id)}}"><i class="fas fa-trash-alt"></i></a>
 					</div>
@@ -189,63 +189,4 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-	<div class="modal fade" id="yetkiModal" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Kullanici Yetkilendir</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<form id="formHizmetler" action="{{URL::to('panel/kullanici/ekle')}}" method="POST">
-					@csrf
-					<div class="modal-body">
-						<div class="form-group">
-							<input type="text" name="name" id="name" class="form-control" placeholder="Kullanıcı Adı" required >
-						</div>
-						<div class="form-group">
-							<select name="modul" class="form-control">
-							@foreach($menu as $m)
-								<optgroup label="{{$m['name']}}">
-									@foreach($m['elements'] as $v)
-										<option value="{{$v['id']}}">{{$v['name']}}</option>
-									@endforeach
-								</optgroup>
-								
-							@endforeach
-							</select>
-						</div>
-						<div class="form-group">
-							<label>Ekle</label>
-							<input type="checkbox" name="">
-						</div>
-						<div class="form-group">
-							<label>Listele</label>
-							<input type="checkbox" name="">
-						</div>
-						<div class="form-group">
-							<label>Guncelle</label>
-							<input type="checkbox" name="">
-						</div>
-						<div class="form-group">
-							<label>Sil</label>
-							<input type="checkbox" name="">
-						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" id="kaydet" name="kaydet" class="btn btn-primary">Kaydet</button>
-					</div>
-				</form>
-
-			</div>
-		</div>
-	</div>
 @endsection
-=======
-
-</section>
-@endsection
->>>>>>> 61a2e6f3958d6908b1bc201911e321440ae80fe9
