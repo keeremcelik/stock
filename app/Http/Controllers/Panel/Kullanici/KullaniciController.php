@@ -13,9 +13,11 @@ class KullaniciController extends Controller{
 	function kullaniciListele(){
 		$liste = DB::table('users')->where('status','=','1')->get();
 		$menu = $this->menuGetir();
+		/*
 		echo "<pre>";
 		var_dump($menu);
 		echo "</pre>";
+		*/
 		/*
 		foreach ($menu as $key => $value) {
 			$menu[$value->name] = 

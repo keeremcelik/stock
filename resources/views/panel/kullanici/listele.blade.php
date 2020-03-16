@@ -28,11 +28,7 @@
 			<tr>		 
 				<td>{{$kullanici->name.' '.$kullanici->surname}}</td>
 				<td>
-					<div class="islemler"> 
-						<a onclick="kullaniciVeriCek('{{$kullanici->id}}','{{$kullanici->name.''.$kullanici->surname}}')" id="" class="editBtn" href="#"  data-toggle="modal" data-target="#userYetkilendir" >Yetkilendir</a>	 
-						<a onclick="kullaniciVeriCek('{{$kullanici->id}}','{{$kullanici->name.''.$kullanici->surname}}')" id="" class="editBtn" href="#"  data-toggle="modal" data-target="#editModal" ><i class="fas fa-edit"></i></a>	 
-						<a class=""  onclick="return confirmDel();" href="{{URL::to('panel/kullanici/sil/'.$kullanici->id)}}"><i class="fas fa-trash-alt"></i></a>
-					</div>
+					
 				</td>				 
 
 			</tr>
