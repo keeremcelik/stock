@@ -16,8 +16,7 @@
 		<div id="sidebar">
 			<div class="sidebar-content">	
 				<div class="sidebar-head">
-
-					<button class="btnToggle" onclick="sidebarToggle()" id="menu-toggle">☰</button>	
+					<span class="title"><i class="fab fa-sticker-mule"></i> STOK</span>				
 				</div>
 				<div class="sidebar-menu">
 					<a href="{{url('/panel')}}" class=""><i class="m-icon fas fa-tachometer-alt"></i><span class="modul-title">Ana Sayfa</span></a>
@@ -37,8 +36,15 @@
 					<div class="collapse" id="olcubirim">
 						<a href="{{url('/panel/olcubirim')}}" class="modulislem" data-parent="#yonetim"> <span class="modul-title">Ölçü Birimleri Listele</span></a>
 					</div>
-					<a href="{{URL::to('panel/kullanici/liste')}}" class="collapsed altmodul" data-parent="#yonetim"><i class="m-icon fas fa-users-cog"></i><span class="modul-title">Kullanıcı İşlemleri </span></a>
 
+					<span class="anamodul">Kullanıcı Modülü</span>
+
+					<a href="#kullanici" class="collapsed altmodul" data-toggle="collapse"><i class="m-icon fas fa-users-cog"></i><span class="modul-title">Kullanıcı İşlemleri </span></a>
+					<div class="collapse" id="kullanici">
+						<a href="{{URL::to('panel/kullanici/liste')}}" class="modulislem" data-parent="#kullanici"> <span class="modul-title">Kullanıcı İşlemleri</span></a>
+						
+						
+					</div>
 					<span class="anamodul">Stok Modülü</span>
 
 					<a href="#stok" class="collapsed altmodul" data-toggle="collapse"><i class="m-icon fas fa-box"></i><span class="modul-title"> STOK Modülü </span></a>
@@ -57,13 +63,13 @@
 
 		<div id="page-content" style="width: 100%">
 			<nav class="navbar">
-
+					
 				<div class="container-fluid">
 					<div class="navbar-header">
-					
+						<button class="btnToggle" onclick="sidebarToggle()" id="menu-toggle">☰</button>	
 					</div>
 					<ul class="nav navbar-nav">
-						
+					
 
 					</ul>
 					<ul class="nav navbar-nav navbar-right navbar-btns">

@@ -25,10 +25,17 @@ function viewStock(element) {
  document.getElementById("sid").value = element; 
 
 };
-
-function kullaniciVeriCek(id,name,status){
+function kullaniciYetkilendirme(id,name,surname){
+	document.getElementById("yetkiId").value = id;
+	document.getElementById("yetkiNameLastName").innerHTML = name + " " + surname;
+	//document.getElementById('editstatus').options[status-1].selected = true;
+}
+function kullaniciVeriCek(id,name,surname,email,phone,status){
 	document.getElementById("editid").value = id;
 	document.getElementById("editname").value = name;
+	document.getElementById("editlastname").value = surname;
+	document.getElementById("editemail").value = email;
+	document.getElementById("editphone").value = phone;
 	//document.getElementById('editstatus').options[status-1].selected = true;
 }
 

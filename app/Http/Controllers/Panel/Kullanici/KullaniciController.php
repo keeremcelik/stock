@@ -30,15 +30,18 @@ class KullaniciController extends Controller{
 	
 	function kullaniciEkle(Request $request){
 		$name = $request->input('name');
+		$surname = $request->input('lastname');
+		$email = $request->input('email');
+		$phone = $request->input('phone');
 		$password = $request->input('password');
 		$repassword = $request->input('repassword');
 		if ($password === $repassword) {
 			$pass = md5($password);
 			$ekle = DB::table('users')->insertGetId([
-							'email'=>$name,
+							'email'=>$email,
 							'name'=>$name,
-							'surname'=>$name,
-							'phone'=>'05317353290',
+							'surname'=>$surname,
+							'phone'=>$phone,
 							'dep_id'=>1,
 							'password'=>$pass,
 							'status'=> 1,
@@ -57,7 +60,7 @@ class KullaniciController extends Controller{
 
 	function kullaniciGuncelle(Request $request){
 		if ($this->kullaniciBul($request->input('editid'))) {
-			$update = DB::table('users')->where('id','=',$request->input('editid'))->update(['username'=>$request->input('editname')]);
+			$update = DB::table('users')->where('id','=',$request->input('editid'))->update(['email'=>$request->input('editname')]);
 			if ($update) {
 				$data = ['status' => 'success','message'=>'Kullanıcı Başarıyla Güncellendi.'];	
 			}else{
