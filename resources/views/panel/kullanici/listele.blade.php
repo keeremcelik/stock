@@ -28,7 +28,11 @@
 			<tr>		 
 				<td>{{$kullanici->name.' '.$kullanici->surname}}</td>
 				<td>
-					
+					<div class="islemler">    
+						<a onclick="kullaniciYetkilendirme('{{$kullanici->id}}','{{$kullanici->name}}','{{$kullanici->surname}}');modalOpen('#userYetkilendir');" id="" class="editBtn" href="#"><i class="fas fa-fingerprint"></i></a>	 
+						<a onclick="kullaniciVeriCek('{{$kullanici->id}}','{{$kullanici->name}}','{{$kullanici->surname}}','{{$kullanici->email}}','{{$kullanici->phone}}');modalOpen('#userDuzenle');" id="" class="editBtn" href="#" ><i class="fas fa-edit"></i></a>	 
+						<a class=""  onclick="return confirmDel();" href="{{URL::to('panel/kullanici/sil/'.$kullanici->id)}}"><i class="fas fa-trash-alt"></i></a>
+					</div>
 				</td>				 
 
 			</tr>
