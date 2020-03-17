@@ -30,8 +30,6 @@ Route::group(['middleware'=>['kullanici']],function(){
 		Route::post('/panel/departman/guncelle','Panel\Departman\DepartmanController@departmanGuncelle');
 
 
-
-
 		Route::get('/panel/olcubirim/sil/{id}',	'Panel\OlcuBirim\OlcuBirimController@olcubirimSil');
 		Route::post('/panel/olcubirim/ekle',	'Panel\OlcuBirim\OlcuBirimController@olcubirimEkle');
 		Route::post('/panel/olcubirim/guncelle','Panel\OlcuBirim\OlcuBirimController@olcubirimGuncelle');
@@ -82,11 +80,11 @@ Route::group(['middleware'=>['kullanici']],function(){
 		Route::get('/panel/kullanici/sil/{id}', 'Panel\Kullanici\kullaniciController@kullaniciSil');
 
 
-		Route::get('/panel/kullanici/findAuthority/','Panel\Kullanici\kullaniciController@KullaniciYetkiBul');
 	});
 
 
 });
+	Route::get('/panel/findAuthority/','Panel\Kullanici\kullaniciController@KullaniciYetkiBul');
 
 
 
