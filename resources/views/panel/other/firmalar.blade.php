@@ -3,13 +3,23 @@
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
+			<div class="optionbar">
+				<div class="left">
+					<div class="title">
+						Firma İşlemleri Modülü
+					</div>
+					<div class="description">
+						Firma yönetimi; ekleme, silme, güncelleme
+					</div>
+				</div>
+				<div class="right">
+					<button type="submit" onclick="modalOpen('#firmaEkle')" id="firmaEkle-btn"class="btn addbutton"><i class="fas fa-plus"></i> Yeni Ekle</button>						
+				</div>
+			</div>
 			<div class="box">
 				<div class="box-header">
 					<h4 class="box-title">Firma Listesi</h4>				
-					<div class="optionbar">
-						<input class="form-control" id="search_text" name="search_text" type="text" value="" placeholder="Search" aria-label="Search">
-						<button type="submit" onclick="modalOpen('#firmaEkle')" id="firmaEkle-btn" name="firmaEkle-btn" class="btn">Yeni </button>
-					</div>
+					
 
 				</div>
 				<div class="veriler"></div>

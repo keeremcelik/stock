@@ -4,13 +4,23 @@
 
 	<div class="row">
 		<div class="col-md-12">
+				<div class="optionbar">
+				<div class="left">
+					<div class="title">
+						Malzeme Cinsi İşlemleri Modülü
+					</div>
+					<div class="description">
+						Malzeme Cinsi yönetimi; ekleme, silme, güncelleme
+					</div>
+				</div>
+				<div class="right">
+					<button type="submit" onclick="modalOpen('#mcinsiEkle')" id="mcinsiEkle-btn"class="btn addbutton"><i class="fas fa-plus"></i> Yeni Ekle</button>						
+				</div>
+			</div>
 			<div class="box">
 				<div class="box-header">
 					<h4 class="box-title">Malzeme Cinsi Listesi</h4>        
-					<div class="optionbar">
-						<input class="form-control" id="search_text" name="search_text" type="text" value="" placeholder="Search" aria-label="Search">
-						<button type="submit" onclick="modalOpen('#mcinsiEkle')" id="mcinsiEkle-btn" name="mcinsiEkle-btn" class="btn">Yeni </button>
-					</div>
+					
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body table-responsive no-padding">

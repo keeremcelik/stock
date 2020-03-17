@@ -4,21 +4,25 @@
    
     <div class="row">
         <div class="col-md-12">
+            <div class="optionbar">
+                    <div class="left">
+                        <div class="title">
+                            Stok İşlemleri Modülü
+                        </div>
+                        <div class="description">
+                            Stok yönetimi; ekleme, silme, güncelleme
+                        </div>
+                    </div>
+                    <div class="right">                       
+                         <a class=" addbutton" href="{{url('panel/stok/ekle')}}"><i class="fas fa-plus"></i> Yeni Stok Kartı Oluştur</a>
+                <a class=" addbutton" href="{{url('panel/stok/giris')}}"><i class="fas fa-plus"></i> Stok Giriş Fişi Oluştur</a>
+                <a class=" addbutton"  href="{{url('panel/stok/cikis')}}"><i class="fas fa-plus"></i> Stok Çıkış Fişi Oluştur</a>
+                <a class="addbutton"  href="{{url('panel/stok/transfer')}}"><i class="fas fa-plus"></i> Stok Transfer </a>                        
+                    </div>
+                </div>
             <div class="box">
                 <div class="box-header">
-                    <h4 class="box-title">STOK Listesi</h4>       
-                     <div class="optionbar">
-            <div class="float-right">
-                <a class="" href="{{url('panel/stok/ekle')}}">Yeni Stok Kartı Oluştur</a>
-                <a class="" href="{{url('panel/stok/giris')}}">Stok Giriş Fişi Oluştur</a>
-                <a class=""  href="{{url('panel/stok/cikis')}}">Stok Çıkış Fişi Oluştur</a>
-                <a class=""  href="{{url('panel/stok/transfer')}}">Stok Transfer </a>
-            </div>
-         
-        </div>       
-                    <div class="optionbar">
-                        <input class="form-control" id="search_text" name="search_text" type="text" value="" placeholder="Search" aria-label="Search">                         
-                    </div>
+                    <h4 class="box-title">STOK Listesi</h4>    
                 </div>
 
                 <!-- /.box-header -->

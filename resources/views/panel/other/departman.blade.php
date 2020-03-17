@@ -9,10 +9,10 @@
 				<div class="optionbar">
 					<div class="left">
 						<div class="title">
-							Sayfa Başlığı
+							Departman Modülü
 						</div>
 						<div class="description">
-							Sayfa Açıklaması
+							Departman yönetimi; ekleme, silme, güncelleme
 						</div>
 
 					</div>

@@ -3,6 +3,7 @@ function modalOpen($tip){
 	$(".popup").fadeOut();
 
 		$($tip).fadeToggle();	
+		
 
 }
 function modalClose($modalName){

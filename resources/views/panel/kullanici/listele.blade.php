@@ -5,13 +5,23 @@
 <section class="content">
 	<div class="row">
 		<div class="col-md-12">
+			<div class="optionbar">
+					<div class="left">
+						<div class="title">
+							Kullanıcı İşlemleri Modülü
+						</div>
+						<div class="description">
+							Kullanıcı yönetimi; ekleme, silme, güncelleme
+						</div>
+					</div>
+					<div class="right">
+						<button type="submit" onclick="modalOpen('#userEkle')" id="userEkle-btn"class="btn addbutton"><i class="fas fa-plus"></i> Yeni Ekle</button>						
+					</div>
+				</div>
 			<div class="box">
 				<div class="box-header">
 					<h4 class="box-title">Kullanıcı Listesi</h4>				
-					<div class="optionbar">
-						<input class="form-control" id="search_text" name="search_text" type="text" value="" placeholder="Search" aria-label="Search">
-						<button type="submit" onclick="modalOpen('#userEkle')" id="userEkle-btn" name="userEkle-btn" class="btn ">Ekle</button>
-					</div>
+				
 				</div>
 				<div class="veriler"></div>
 				<!-- /.box-header -->

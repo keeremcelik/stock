@@ -26,7 +26,6 @@
 					<a href="#departman" class="collapsed altmodul" data-toggle="collapse"><i class="m-icon fas fa-sitemap"></i><span class="modul-title">Departman İşlemleri </span></a>
 					<div class="collapse" id="departman">
 						<a href="{{url('/panel/departman')}}" class="modulislem" data-parent="#departman"> <span class="modul-title">Departman Listele </span></a>
-						<a href="{{url('/panel/departman/ekle')}}" class="modulislem" data-parent="#departman"> <span class="modul-title">Departman Ekle</span></a>
 					</div>
 					<a href="#depo" class="collapsed altmodul" data-toggle="collapse"><i class="m-icon fas fa-warehouse"></i><span class="modul-title">Depo İşlemleri </span></a>
 					<div class="collapse" id="depo">

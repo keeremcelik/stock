@@ -4,13 +4,23 @@
 
   <div class="row">
     <div class="col-md-12">
+        <div class="optionbar">
+        <div class="left">
+          <div class="title">
+            Malzeme Grubu İşlemleri Modülü
+          </div>
+          <div class="description">
+            Malzeme Grubu yönetimi; ekleme, silme, güncelleme
+          </div>
+        </div>
+        <div class="right">
+          <button type="submit" onclick="modalOpen('#mgrupEkle')" id="mgrupEkle-btn"class="btn addbutton"><i class="fas fa-plus"></i> Yeni Ekle</button>            
+        </div>
+      </div>
       <div class="box">
         <div class="box-header">
           <h4 class="box-title">Malzeme Grubu Listesi</h4>        
-          <div class="optionbar">
-            <input class="form-control" id="search_text" name="search_text" type="text" value="" placeholder="Search" aria-label="Search">
-            <button type="submit" onclick="modalOpen('#mgrupEkle')" id="mgrupEkle-btn" name="mgrupEkle-btn" class="btn">Yeni </button>
-          </div>
+       
 
         </div>
         <!-- /.box-header -->
