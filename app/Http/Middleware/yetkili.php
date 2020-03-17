@@ -4,25 +4,24 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class yetkili
-{
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
-    public function handle($request, Closure $next)
-    {
-        $yetki = $request->session()->get('kullanici')->authority;
-       
-        if ($yetki == 1) {
+class yetkili{
+/**
+* Handle an incoming request.
+*
+* @param  \Illuminate\Http\Request  $request
+* @param  \Closure  $next
+* @return mixed
+*/
+	public function handle($request, Closure $next){
+		if ($request) {
+			$path = $request->path();
+			$links = isset($request->session()->get('kullanici')->links) ? $request->session()->get('kullanici')->links : array() ;
 
-        }else{
-            die();
-        }
-        //print_r($request->session()->get('kullanici')->authority == 1);
-        return $next($request);
-    }
+			if (in_array($path, $links)) {
+				return $next($request);
+			}else{
+				return redirect('panel');
+			}
+		}
+	}
 }

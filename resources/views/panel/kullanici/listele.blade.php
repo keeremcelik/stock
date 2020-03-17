@@ -19,7 +19,8 @@
 					<table id="" class="table">
 		<thead class="">
 			<tr>
-				<th width="90%">Kullanıcı Adı</th>
+				<th width="40%">Kullanıcı Adı</th>
+				<th width="50%">Yetkiler</th>
 				<th width="10%">İşlemler</th>
 			</tr>
 		</thead>
@@ -27,6 +28,7 @@
 			@foreach($kullanicilar as $kullanici)
 			<tr>		 
 				<td>{{$kullanici->name.' '.$kullanici->surname}}</td>
+				<td>{{$kullanici->authority}}</td>
 				<td>
 					<div class="islemler">    
 						<a onclick="kullaniciYetkilendirme('{{$kullanici->id}}','{{$kullanici->name}}','{{$kullanici->surname}}');modalOpen('#userYetkilendir');" id="" class="editBtn" href="#"><i class="fas fa-fingerprint"></i></a>	 
@@ -140,7 +142,7 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
-				<form id="formHizmetler" action="{{URL::to('panel/kullanici/guncelle')}}" method="POST">
+				<form id="formHizmetler" action="{{URL::to('panel/kullanici/yetkilendir')}}" method="POST">
 					@csrf
 					<div class="popbox-body">
 						<input type="text" name="yetkiId" id="yetkiId" class="form-control" hidden readonly >
@@ -148,32 +150,46 @@
 							<p name="yetkiNameLastName" id="yetkiNameLastName"></p>
 						</div>
 						<div class="form-group">
-							<select name="modul" class="form-control">
+							<select 
+								name="modul" 
+								id="yetkiSelect" 
+								class="form-control" 
+								onchange="findAuthority(yetkiId.value,this.value)"
+								selected="-1"
+								value="-1">
+								<option selected disabled=""><span>Modul Seçiniz</span></option>
 							@foreach($menu as $m)
+							@if(isset($m['elements']))
 								<optgroup label="{{$m['name']}}">
 									@foreach($m['elements'] as $v)
 										<option value="{{$v['id']}}">{{$v['name']}}</option>
 									@endforeach
 								</optgroup>
-								
+							@else
+								<option value="{{$m['id']}}">{{$m['name']}}</option>
+							@endif								
 							@endforeach
 							</select>
 						</div>
 					<div class="form-group">
 						<label class="chklbl">Ekle
-							<input type="checkbox" name="">
+							<input type="hidden" id="yetkiEkle" name="ekle" value="0">
+							<input type="checkbox" id="yetkiEkleCheck" name="ekle" value="1">
 							<span class="checkmark"></span>
 						</label>
 						<label class="chklbl">Sil
-							<input type="checkbox" name="">
+							<input type="hidden" id="yetkiSil" name="sil" value="0">
+							<input type="checkbox" id="yetkiSilCheck" name="sil" value="1">
 							<span class="checkmark"></span>
 						</label>
 						<label class="chklbl">Guncelle
-							<input type="checkbox" name="">
+							<input type="hidden" id="yetkiGuncelle" name="guncelle" value="0">
+							<input type="checkbox" id="yetkiGuncelleCheck" name="guncelle" value="1">
 							<span class="checkmark"></span>
 						</label>
 						<label class="chklbl">Listele
-							<input type="checkbox" name="">
+							<input type="hidden" id="yetkiListele" name="listele" value="0">
+							<input type="checkbox" id="yetkiListeleCheck" name="listele" value="1">
 							<span class="checkmark"></span>
 						</label>
 						

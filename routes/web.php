@@ -16,15 +16,6 @@ Route::post('/', 						'LoginController@loginIslem');
 
 
 
-
-
-
-
-
-
-
-
-
 Route::group(['middleware'=>['kullanici']],function(){
 
 	Route::get('/panel', 					'PanelController@index');
@@ -124,7 +115,11 @@ Route::post('/panel/stok/cikis', 		'Panel\Stok\StokController@stokCikis');
 
 
 
-Route::get('/panel/kullanici/liste', 	'Panel\Kullanici\kullaniciController@kullaniciListele');
+Route::get('/panel/kullanici', 	'Panel\Kullanici\kullaniciController@kullaniciListele');
 Route::post('/panel/kullanici/ekle', 	'Panel\Kullanici\kullaniciController@kullaniciEkle');
 Route::post('/panel/kullanici/guncelle','Panel\Kullanici\kullaniciController@kullaniciGuncelle');
+Route::post('/panel/kullanici/yetkilendir','Panel\Kullanici\kullaniciController@kullaniciYetkilendir');
 Route::get('/panel/kullanici/sil/{id}', 'Panel\Kullanici\kullaniciController@kullaniciSil');
+
+
+Route::get('/panel/kullanici/findAuthority/','Panel\Kullanici\kullaniciController@KullaniciYetkiBul');

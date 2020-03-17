@@ -11,4 +11,10 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    public function py($string){
+    	echo "<pre>";
+    	print_r($string);
+    	echo "</pre>";
+    }
 }

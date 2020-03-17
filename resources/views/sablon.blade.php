@@ -19,6 +19,9 @@
 					<span class="title"><i class="fab fa-sticker-mule"></i> STOK</span>				
 				</div>
 				<div class="sidebar-menu">
+					@if(!empty($kullanici->stringMenu))
+					{!! $kullanici->stringMenu !!}
+					@else
 					<a href="{{url('/panel')}}" class=""><i class="m-icon fas fa-tachometer-alt"></i><span class="modul-title">Ana Sayfa</span></a>
 
 					<span class="anamodul">Yönetim Modülleri</span>
@@ -55,6 +58,7 @@
 						<a href="{{url('/panel/mcinsi')}}" class="modulislem" data-parent="#stok"><span class="modul-title"> Malzeme Cinsi</span></a>
 						<a href="{{url('/panel/urunler')}}" class="modulislem" data-parent="#stok"> <span class="modul-title">Ürün İşlemleri</span></a>
 					</div>
+					@endif
 				</div>
 			</div>
 

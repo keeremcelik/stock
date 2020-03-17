@@ -16,6 +16,7 @@ class PanelController extends Controller
                 'urunSayi'=>$urunSayi,
                 'kullaniciSayi'=>$kullaniciSayi,
                 'kullanıcılar'=>$this->kullaniciListesi(),
+                'kullanici' => session('kullanici'),
             ]
         );
    }

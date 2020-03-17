@@ -141,4 +141,25 @@ function changeImgModal(element) {
 	$('#editimg')[0].src = window.URL.createObjectURL(element);
 }
 
-	
+
+function findAuthority(uId,aId){
+	$('#yetkiEkleCheck').prop('checked', false);
+	$('#yetkiSilCheck').prop('checked', false);
+	$('#yetkiGuncelleCheck').prop('checked', false);
+	$('#yetkiListeleCheck').prop('checked', false);
+	$.ajax({
+		url:'findAuthority',
+		type:'get',
+		data: {id:uId,auth:aId},
+		success:function(result){
+			console.log(result);
+			$('#yetkiEkleCheck').prop('checked',  result[0] == "0"? false : true);
+			$('#yetkiSilCheck').prop('checked', result[1] == "0"? false : true);
+			$('#yetkiGuncelleCheck').prop('checked', result[2] == "0"? false : true);
+			$('#yetkiListeleCheck').prop('checked', result[3] == "0"? false : true);
+		},
+		error:function(jqHR,textStatus,errorThrown){
+			console.log(textStatus,errorThrown,jqHR);
+		}
+	})
+}

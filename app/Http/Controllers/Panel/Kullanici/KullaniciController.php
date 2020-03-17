@@ -13,20 +13,6 @@ class KullaniciController extends Controller{
 	function kullaniciListele(){
 		$liste = DB::table('users')->where('status','=','1')->get();
 		$menu = $this->menuGetir();
-		/*
-		echo "<pre>";
-		var_dump($menu);
-		echo "</pre>";
-		*/
-		/*
-		foreach ($menu as $key => $value) {
-			$menu[$value->name] = 
-			DB::table('modules')->where('m_id','=',$value->id)->get();
-			unset($menu[$key]);
-		}
-		echo "<pre>";
-		print_r($menu);
-		echo "</pre>";*/
 		return view($this->baseViewUrl,['kullanicilar' => $liste,'menu'=>$menu]);
 	}
 	
@@ -61,14 +47,67 @@ class KullaniciController extends Controller{
 	}
 
 	function kullaniciGuncelle(Request $request){
-		if ($this->kullaniciBul($request->input('editid'))) {
-			$update = DB::table('users')->where('id','=',$request->input('editid'))->update(['email'=>$request->input('editname')]);
+		$id = $request->input('editid');
+		$name = $request->input('editname');
+		$surname = $request->input('editlastname');
+		$email = $request->input('editemail');
+		$phone = $request->input('editphone');
+		
+		if ($this->kullaniciBul($id)) {
+			$update = DB::table('users')
+				->where('id','=',$id)
+				->update([
+					'email'=> $email,
+					'name' => $name,
+					'surname' => $surname,
+					'phone' => $phone
+				]);
 			if ($update) {
 				$data = ['status' => 'success','message'=>'Kullanıcı Başarıyla Güncellendi.'];	
 			}else{
 				$data = ['status' => 'danger','message'=>'Kullanıcı Güncellenemedi.'];
 			}	
+		}else{
+			$data = ['status' => 'danger','message'=>'Kullanıcı Bulunamadı!'];
 		}
+			return $this->yonlendir($this->reUrl,$data);
+	}
+
+	function kullaniciYetkilendir(Request $request){
+		$modul = $request->input('modul');
+		$ekle = $request->input('ekle');
+		$sil = $request->input('sil');
+		$guncelle = $request->input('guncelle');
+		$listele = $request->input('listele');
+		$id = $request->input('yetkiId');
+		
+		if ($this->kullaniciBul($id)) {
+			$oldAuth = json_decode($this->kullaniciBul($id)->authority);
+			$authority = $oldAuth ? $oldAuth : new \stdClass();
+			$authority->$modul = array(
+				$ekle,
+				$sil,
+				$guncelle,
+				$listele,
+			);
+			if (empty(array_filter($authority->$modul))) {
+				unset($authority->$modul);
+			}
+			$authority = json_encode($authority);
+			
+			$update = DB::table('users')
+					->where('id','=',$id)
+					->update(['authority'=>$authority]);
+			
+			if ($update) {
+				$data = ['status' => 'success','message'=>'Kullanıcı Başarıyla Güncellendi.'];	
+			}else{
+				$data = ['status' => 'danger','message'=>'Kullanıcı Güncellenemedi.'];
+			}	
+		}else{
+				$data = ['status' => 'danger','message'=>'Kullanıcı Bulunamadı.'];
+		}
+		
 		return $this->yonlendir($this->reUrl,$data);
 	}
 
@@ -87,7 +126,20 @@ class KullaniciController extends Controller{
 	function kullaniciBul($id){
 		return DB::table('users')->where('id','=',$id)->where('status','=',1)->first();
 	}
-	
+	function kullaniciYetkiBul(Request $request){
+		$id = $request->input('id');
+		$auth = $request->input('auth');
+		$veri = DB::table('users')->where('id','=',$id)->where('status','=',1)->get('authority')->first()->authority;
+		$veri = json_decode($veri);
+		
+		if (isset($veri->$auth)) {
+			return response()->json($veri->$auth);
+		}else{
+			return response()->json(array(0,0,0,0));
+		}
+		
+		return;
+	}
 	function pr($string){
 		echo "<pre>";
 		print_r($string);
@@ -106,6 +158,7 @@ class KullaniciController extends Controller{
 		foreach ($data as $key => $value) {
 			if ($value->m_id == 0) {
 				$menu[$value->id]['name'] = $value->name;
+				$menu[$value->id]['id'] = $value->id;
 				$m_name = $value->name;
 			}else{
 				$menu[$value->m_id]['elements'][] = array(
@@ -116,24 +169,5 @@ class KullaniciController extends Controller{
 			}
 		}
 		return $menu;
-		/*
-		echo "<pre>";
-		print_r($ustMenu);
-		echo "</pre>";
-		*/
-		/*
-		//echo "<select>";
-		foreach ($ustMenu as $key => $value) {
-		//	echo '<optgroup label="'.$value['name'].'">';
-			if (is_array($value['elements'])) {
-				foreach ($value['elements'] as $k => $v) {
-		//			print_r($v);
-		//			echo '<option>'.$v['name'].'</option>';
-				}
-			}
-		//	echo '</optgroup>';
-		}
-		//echo "</select>";
-*/
 	}
 }
