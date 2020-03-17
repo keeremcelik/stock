@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 
 class KullaniciController extends Controller{
 	private $baseViewUrl = 'panel/kullanici/listele';
-	private $reUrl = 'panel/kullanici/liste';
+	private $reUrl = 'panel/kullanici';
 
 	function kullaniciListele(){
 		$liste = DB::table('users')->where('status','=','1')->get();
